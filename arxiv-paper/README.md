@@ -220,6 +220,57 @@ principle. A concept relatively well known by the classification
 community. However, to the best of our knowledge, its application to
 security needs more thought [6].
 
+#### 3) Security Games and Competitive Learning
+
+In [2], the authors propose a taxonomy to characterize the different
+types of attacks targeting AI-based security approaches, for example,
+machine learning classification and discrimination techniques taking
+security decisions. This taxonomy focuses on the techniques employed
+to identify malicious artifacts such as, messages, codes, program
+inputs and outputs. The work suggests to complement machine learning
+with gametheoretic security approaches, specially those in which the
+adversary may alter the training data. These observations have been
+widely repeated and extended in the information security literature
+[17].
+
+In this context, the principle of a security game amounts to
+quantifying the adversarial resources required to attack a system and
+the defensive capabilities of the latter. In this way, it is possible
+to determine optimal configurations to manage the risks of attacks as
+a quest for defender vs. adversary equilibrium. Along these lines,
+authors in [18] insists on the importance of using learning techniques
+with access to real time data. Outdated data increases the risk of
+making incorrect decisions by a defender [13]. Data must be considered
+obsolete by a learning process at a certain point in time [4]. The use
+of utility functions can be provided to formulate more realistic
+games. Such functions do not necessarily need to be under the
+classical computing realm. Extended machine learning functions relying
+on quantum techniques are expected [24].
+
+#### 4) The Quantum Advantage
+
+The time complexity of quantum search techniques are data size
+independent. Along the same line, quantum machine learning, i.e., the
+use of quantum computing for machine learning, has great potential
+because the time complexity of classification is independent of the
+number of data points. Schuld and Killoran investigated the use of
+kernel methods [25], that can be used for system identification, for
+quantum machine learning [24], [23]. Encoding of classical data into a
+quantum state is needed. A similar approach has been proposed by
+Havlicek et al. [11].
+
+Schuld and Petruccione [24] discussed in details the application of
+quantum machine learning classical data generation and quantum data
+processing. A translation procedure is required to map the classical
+data, i.e., the data points, to quantum data, enabling quantum data
+processing, i.e., quantum classification. However, there is a cost
+associated with translating classical data into the quantum form,
+which is comparable to the cost of classical machine learning
+classification. This is right now the main barrier. The approach that
+will result in real gains is quantum data generation and quantum data
+processing, there will be no need to translate from classical to
+quantum data. Quantum data generation requires quantum sensing.
+
 ## III. FAKING AND DISCRIMINATING NAVIGATION DATA
 
 Using the Generative Adversarial Network (GAN) framework,
