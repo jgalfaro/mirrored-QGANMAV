@@ -328,9 +328,33 @@ src="https://latex.codecogs.com/gif.latex?$i$"/> is connected to qubit
 <img src="https://latex.codecogs.com/gif.latex?$i+1$"/> modulo <img
 src="https://latex.codecogs.com/gif.latex?$n$"/> using a CNOT gate.
 
+*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.*
+
 ![Fig. 3. Three-qubit elementary circuit layer.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig3.png?raw=true)
 
+*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.*
+
 ![Fig. 4. Discriminator circuit made of two layered elementary circuits.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig4.png?raw=true)
+
+*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.*
 
 ![Fig. 5. Generator qubit circuit feeding the discriminator circuit.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig5.png?raw=true)
 
@@ -421,17 +445,41 @@ src="https://latex.codecogs.com/gif.latex?$2^n$"/> qumodes. In Figure
 7, <img
 src="https://latex.codecogs.com/gif.latex?$n$"/> is two.
 
+The generator is initialized with arbitrary displacements and rotation
+angles (<img src="https://latex.codecogs.com/gif.latex?\alpha"/> and
+<img src="https://latex.codecogs.com/gif.latex?\phi"/>). A gradient
+descent optimizer is used to minimize the cost represented by the term
+<img src="https://latex.codecogs.com/gif.latex?$--%20p_F$"/>. The
+outcome of the optimization of the generator is two column vectors of
+displacements and rotation angles, <img src="https://latex.codecogs.com/gif.latex?$2^n$"/> rows each, actualizing the
+generator circuit such that the probability that fake data is
+recognized as true is high.
+
+*Definition 2 (Generator optimization problem):* Given the quantum
+input state <img src="https://latex.codecogs.com/gif.latex?\psi"/>,
+probability amplitude encoding fake navigation data, the discriminator
+<img src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"
+/>, actualized with rotation angle matrix <img
+src="https://latex.codecogs.com/gif.latex?\omega"/>, training the
+generator <img
+src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\alpha,\phi)" />
+is the optimization problem that consists of finding the column
+vectors of the rotation angles <img
+src="https://latex.codecogs.com/gif.latex?\alpha"/> and <img
+src="https://latex.codecogs.com/gif.latex?\phi"/> (<img
+src="https://latex.codecogs.com/gif.latex?$2^n$"/> rows each) that
+gives the smallest difference <img
+src="https://latex.codecogs.com/gif.latex?$--%20p_F$"/>.
+
+
 ![Fig. 7. Generator qubit circuit feeding the discriminator circuit (n is two).](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig7.png?raw=true)
 
+The learning process is automatic. The output of the photonic quantum
+circuit is classical and in the continuous domain. It is directly
+usable by the adversary to generate fake navigation data during a
+covert attack. The circuit complexity is although in <img
+src="https://latex.codecogs.com/gif.latex?\mathcal{O}(2^n)" />.
 
-
-*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.*
 
 
 ## IV. PERFORMANCE
