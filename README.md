@@ -11,9 +11,9 @@ Version: August 30, 2019
 
 Reuse code from:
 
-<a href="http://github.com/XanaduAI/pennylane/blob/master/examples/Q3_variational-classifier.ipynb">Example Q3 - Variational classifier - 2. Iris classification</a>
+<a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_variational_classifier.py">Variational classifier - 2. Iris classification</a>
 
-<a href="http://github.com/XanaduAI/pennylane/blob/master/examples/Q4_quantum-GAN.ipynb">Example Q4 - Quantum Generative Adversarial Network</a>
+<a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_QGAN.py">Quantum Generative Adversarial Network</a>
 
 <a href="https://pennylane.readthedocs.io/en/latest/tutorials/gaussian_transformation.html">Basic tutorial: Gaussian transformation</a>
 
