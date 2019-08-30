@@ -5,6 +5,7 @@ Faking and Discriminating the Navigation Data of a Micro Aerial Vehicle Using Qu
 
 ### Joaquin Garcia-Alfaro, Institut Polytechnique de Paris, CNRS UMR 5157 SAMOVAR, Télécom SudParis, France.
 
+<a href="https://arxiv.org/abs/1907.03038">https://arxiv.org/abs/1907.03038</a>
 
 ## Abstract
 We show that the Quantum Generative Adversarial Network (QGAN)
