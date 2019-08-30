@@ -138,6 +138,88 @@ cyber-physical covert attacks [27], [26].
 
 ![Fig. 1. MAV navigation data trace disruptions.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig1.png?raw=true)
 
+Assume now the merge of multiple navigation traces of a single MAV
+over a given period of time, as depicted in Figure 2. The expected
+navigation data seen by the CPS controller is depicted in Figure 2(a).
+The spoofed navigation data, due to the adversarial attacks, is
+depicted by the dashed lines in Figure 2(b). The covert attack
+conducted by the adversary conceals the alteration of some of the
+navigation paths. The defender conducts a learning process to guess
+the adversarial intentions. The defender also prioritizes assets that
+can get sacrificed as collateral damages (e.g., to offer some tactical
+victories to the adversary with the aim of reducing the adversarial
+power in the long term), e.g., by using some game-theoretic ideas. The
+process allows the defender to get trusted by the adversary, i.e., to
+make the adversary confident about the success of some perpetrated
+actions. Practically speaking, the collateral damages allow the
+defender to reinforce the defensive learning processes, with the aim
+of handling and correcting the affected system represented by Figure
+2(b), to the original plans before the execution of the adversarial
+actions (i.e., Figure 2(a)). Both graphs (the one seen by the defender
+and the one seen by the adversary) evolve dynamically over time, and
+converge eventually. Successful victories of the learning process
+conducted by the defender increases the converge likelihood of the two
+graphs.
+
+![Fig. 2. Genuine vs. Spoofed data.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig2.png?raw=true)
+
+### B. Related Work
+
+Related work include the use of machine learning for
+cyber-physical protection, management of data quality (w.r.t.
+feedback-control systems), use of security games and competitive
+learning. More detailed information follow.
+
+#### 1) CPS Protection Using Machine Learning
+
+The domain of AI, by means of the subfields of search and machine
+learning, provides a large set of techniques relevant to the
+resilience of a CPS. Supervised, unsupervised and reinforcement are
+the three main machine learning paradigms. In supervised machine
+learning, there are old and new data points. Old data points are
+labelled, representing classes of data points. Comparing their
+similarity with old ones, supervised machine leaning assigns labels to
+new data points. With unsupervised machine learning, the data points
+are unlabelled. Learning consists of extracting information from data.
+Data points are grouped together into classes according to similarity.
+Human experts label the classes.
+
+In contrast, reinforcement learning rewards or penalizes the learner
+following the validity of inferred classifications. Learning is from
+the successes and mistakes. Supervised and reinforcement machine
+learning is used for system identification and model fitting.
+Different alternative learning methods exist, based on different
+considerations on the type of model (e.g., rule-based, support-vector
+machines, deep learning models) and its properties (e.g., explainable
+models/decisions, efficiency). The perpetration of controltheoretic
+attacks [27], [26] may require a system identification phase performed
+by the adversary. Kernels methods [25], a kind of machine learning,
+can be used for system identification [19], [20].
+
+#### 2) Data Quality and Source Heterogeneity
+
+Learning methods designed to recognize malicious activities within
+large complex systems may be sensitive to the consequences of merging
+data from very heterogeneous sources. The learning process can be
+impacted by poor data quality, affecting the reliability of the
+decisions that are made. For example, data sources can be unmalicious
+but of little confidence. This issue is important for the protection
+of the learning phase. Adequate risk management calls for the
+implementation of data quality evaluation. Discriminators must be
+designed to cope with operational data relatively different and
+considerably more inaccurate than the training data. Taking into
+account data quality prevents bias and integrity attacks aiming to
+deceive a discrimination process [18]. Conversely, discrimination
+algorithms affected by slight modifications of training data may be
+too sensitive. They can be exploited more easily by adversaries. There
+are trade offs that can be taken into account by a security game
+modeling risk management. An interesting avenue is considering the
+possibility of a classifier not producing an answer when data quality
+cannot be guaranteed. This behavior corresponds to the rejection
+principle. A concept relatively well known by the classification
+community. However, to the best of our knowledge, its application to
+security needs more thought [6].
+
 ## III. FAKING AND DISCRIMINATING NAVIGATION DATA
 
 Using the Generative Adversarial Network (GAN) framework,
