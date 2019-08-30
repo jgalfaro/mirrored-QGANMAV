@@ -134,14 +134,11 @@ jgalfaro@ieee.org}
 \thispagestyle{plain}
 \pagestyle{plain}
 
-%% Joaquin: I have changed real data to genuine data (everywhere). 
-%% Double check if this is correct
-
 \begin{abstract}
-We show that the \gls*{qgan} paradigm can be employed by an adversary to learn  generating data that deceives the monitoring of a \gls*{cps} and to perpetrate a covert attack. 
+We show that the \gls*{qgan} paradigm can be employed by an adversary to learn  generating data that deceives the monitoring of a \gls*{cps} and to perpetrate a covert attack.
 As a test case, the ideas are elaborated considering the navigation data of a \gls*{mav}.
-A concrete \gls*{qgan} design is proposed to generate 
-fake \gls*{mav} navigation data. Initially, the adversary is entirely ignorant about the dynamics of the \gls*{cps}, the strength of the approach from the point of view of the bad guy. A design is also proposed to discriminate between genuine and fake \gls*{mav} navigation data. The designs combine classical optimization, qubit quantum computing and photonic quantum computing. Using the PennyLane software simulation, they are evaluated over 
+A concrete \gls*{qgan} design is proposed to generate
+fake \gls*{mav} navigation data. Initially, the adversary is entirely ignorant about the dynamics of the \gls*{cps}, the strength of the approach from the point of view of the bad guy. A design is also proposed to discriminate between genuine and fake \gls*{mav} navigation data. The designs combine classical optimization, qubit quantum computing and photonic quantum computing. Using the PennyLane software simulation, they are evaluated over
 a classical computing platform. We assess the learning time and accuracy of the navigation data generator and discriminator versus space complexity, i.e., the amount of quantum memory needed to solve the problem. %% \\
 ~~\\
 ~~\\
@@ -151,14 +148,14 @@ a classical computing platform. We assess the learning time and accuracy of the 
 \section{Introduction}
 
 \noindent \gls*{cps}s comprise physical processes monitored and
-controlled through embedded computing and networked resources. 
+controlled through embedded computing and networked resources.
 Signals to actuators and
 feedback from sensors are exchanged with controllers using, e.g.,
 wireless communication. The advantages of such architectures include
-flexibility and relatively low deployment costs. Nevertheless, the perpetration of cyber-physical attacks must be addressed. The 
-problem is 
-particularly challenging when the \gls*{cps} consists of disruptive 
-technologies such as \gls*{mav}s, \gls*{uav}, \gls*{uuv} and \gls*{mav} 
+flexibility and relatively low deployment costs. Nevertheless, the perpetration of cyber-physical attacks must be addressed. The
+problem is
+particularly challenging when the \gls*{cps} consists of disruptive
+technologies such as \gls*{mav}s, \gls*{uav}, \gls*{uuv} and \gls*{mav}
 swarming.
 
 Today's cybersecurity solutions, from in-depth defense techniques
@@ -166,22 +163,22 @@ Today's cybersecurity solutions, from in-depth defense techniques
 aim to prevent system breaches from happening. However, several
 stories of attacks and disruption of \gls*{cps} exist (e.g., from the
 \href{http://j.mp/2jaM6uM}{Stuxnet worm} incident affecting a Iran's
-\emph{atomic program}~\cite{stuxnet} to recent incidents 
-in Saudi Arabia affecting \href{http://bit.ly/2LMqR3H}{Houthi drones}~\cite{houthiDrone}). \gls*{cps} protection solutions 
+\emph{atomic program}~\cite{stuxnet} to recent incidents
+in Saudi Arabia affecting \href{http://bit.ly/2LMqR3H}{Houthi drones}~\cite{houthiDrone}). \gls*{cps} protection solutions
 must manage and take control over adversarial actions.
 Protection must be built taking on the adversary mindset,
 predicting its intentions and adequately mitigating the effects of
-its actions. 
+its actions.
 
 In this paper, we explore the use of the  \gls*{qgan} paradigm to address cyber-physical security issues in the domain of \gls*{mav}s.
-A concrete \gls*{qgan} design is proposed to generate 
-fake \gls*{mav} navigation data. Initially, the adversary is entirely ignorant about the dynamics of the \gls*{cps}. From the point of view of the adversary, it is the strength of the approach. A design is also proposed to discriminate between real and fake \gls*{mav} navigation data. The designs combine classical optimization, qubit quantum computing and photonic quantum computing. 
-We build upon the PennyLane quantum machine learning software platform~\cite{Bergholm2018}. In particular, we reuse and adapt ideas 
+A concrete \gls*{qgan} design is proposed to generate
+fake \gls*{mav} navigation data. Initially, the adversary is entirely ignorant about the dynamics of the \gls*{cps}. From the point of view of the adversary, it is the strength of the approach. A design is also proposed to discriminate between real and fake \gls*{mav} navigation data. The designs combine classical optimization, qubit quantum computing and photonic quantum computing.
+We build upon the PennyLane quantum machine learning software platform~\cite{Bergholm2018}. In particular, we reuse and adapt ideas
 from the variational
 classifier~\cite{Schuld2019Q3} and \gls*{qgan}~\cite{Schuld2019Q4}
-examples. 
+examples.
 
-We evaluate our approach using the simulation capabilities of PennyLane. We measure the learning time and accuracy of the navigation data generator and discriminator with respect to the space complexity, i.e., the amount of quantum memory used to solve the problem. 
+We evaluate our approach using the simulation capabilities of PennyLane. We measure the learning time and accuracy of the navigation data generator and discriminator with respect to the space complexity, i.e., the amount of quantum memory used to solve the problem.
 At the outset, we acknowledge that the exponentially growing time complexity in the number of qubits of our solution is a barrier to its application on a large scale.
 In particular, when the calculations are all done in simulation over a classical computing platform.
 Nevertheless, we show the feasibility of the approach on a small scale and identify hurdles that are likely to be overcome by the upcoming evolution of quantum machine learning.
@@ -201,7 +198,7 @@ terms of activities consisting of gathering and hiding knowledge about both defe
 envision the use of new learning theories, in which defenders and
 adversaries conceal their actions to avoid being profiled for the purpose
 of thwarting their \emph{cyber-physical
-battle weapons}. 
+battle weapons}.
 Defenders equipped with \gls*{ai} tools, such as machine
 learning, can be identify adversarial actions trying to collect as much knowledge as possible about their targets. The defense starts
 by learning the weaknesses of the adversaries and offensively
@@ -211,15 +208,15 @@ behavior performed to identify and disrupt the services,
 the defender starts offering assets sacrificed to coax the
 adversary and to manage a potential security breach.
 
-We are particularly interested in a type of \gls*{cps} which function is air space 
+We are particularly interested in a type of \gls*{cps} which function is air space
 surveillance and coastal water monitoring. The application domain of interest
 includes \gls{mavs} and
 related technologies such as \gls*{uav}, \gls*{uuv},
 formations of \gls*{mavs} and collaborating \gls*{mavs}.
 We focus on
 scenarios where an adversary targets the components of the
-\gls*{cps} and perpetrates covert cyber-physical attacks~\cite{Teixeira2015,smith2015covert}. 
-The adversary is to operate a stealthy disruption of 
+\gls*{cps} and perpetrates covert cyber-physical attacks~\cite{Teixeira2015,smith2015covert}.
+The adversary is to operate a stealthy disruption of
 services.
 The purpose is disrupting the
 navigation data of the \gls{mavs} and deceive the defender. The
@@ -227,26 +224,15 @@ role of the defender is to recognize the activities performed by the
 adversary, i.e., identify the intentions of the adversary and
 correct the adversarial actions.
 
-%% \begin{figure}[!htb]
-%% \centering
-%% \includegraphics[width=\columnwidth]{figs/DroneScenario}
-%% \caption{Swarm of drones conducting patrolling services. Imagine that,
-%%   due to a covert attack~\cite{smith2015covert}, the swarm gets hacked
-%%   by a remote adversary, who converts the original swarm into a group
-%%   of zombie drones, to conduct unauthorized actions (e.g.,
-%%   unauthorized monitoring of unaware citizens). \label{fig:fig1}}
-%% \end{figure}
-
 \subsection{Covert Attack and Feedback Truthfulness}
 
-%\hl{Explain a bit more what we meant by Covert Attack? We can use (and/or %adapt) the following text from the ESORICS paper:}\\
 A covert attack is an aggression on the state of a \gls*{cps} where
 the adversary attempts to be invisible~\cite{Teixeira2015}. It is
-assumed that the adversary knows or can learn the dynamics of 
+assumed that the adversary knows or can learn the dynamics of
 the \gls*{cps}. While the attack is being carried out, the perpetrator compensates the impact of the attack over the system by providing fake information to the system operators (e.g., by concealing the
 effect of the spoofed inputs). Hence, from the point of view of an
 observer, responsible for detecting the attack, the execution of
-the \gls*{cps} looks normal. 
+the \gls*{cps} looks normal.
 \begin{figure}[!b]
 \subfigure[]{
 \includegraphics[width=.45\columnwidth]{figs/SpoofX_v3}
@@ -260,7 +246,7 @@ the \gls*{cps} looks normal.
 \subfigure[]{
 \includegraphics[width=.45\columnwidth]{figs/SpoofXYZ_v3}
 }
-\caption{\gls*{mav} navigation data trace disruptions. The adversary 
+\caption{\gls*{mav} navigation data trace disruptions. The adversary
 perpetrates GPS-like attacks~\cite{barbeau2019geocaching,javaid2017analysis},
   e.g., to swap the navigation coordinates. Solid lines represent genuine navigation data. Dashed lines represent disrupted navigation data.
   (a)~Swapping of the $x$ coordinate. (b)~Swapping of the $y$ coordinate. (c)~Swapping of the $x,z$ coordinates. (d)~Swapping of the $x,y,z$ coordinates. \label{fig:fig1}}
@@ -274,21 +260,6 @@ The goal of the adversary is to conduct navigation data modifications
 hide the disruption to the defender, with additional cyber-physical
 covert attacks~\cite{Teixeira2015, smith2015covert}.
 
-%% old scenario --- swarm of drones conducting patrolling services.
-%% Imagine that the swarm gets hacked by a remote adversary, who
-%% converts the original swarm into a group of zombie drones, to
-%% conduct unauthorized actions (e.g., unauthorized monitoring of
-%% unaware citizens).
-
-%% The swarm is capable of adapting its behavior, to avoid that the
-%% defender identifies its intentions. This may involve sensing and
-%% responding to environmental changes, updating a goal and dynamically
-%% generating new plans. Game and learning theories can help both the
-%% adversary and defender to handle the problem. An illustrative example
-%% follows.
-
-%% \subsection{Illustrative Example}
-%% \label{sec:example}
 \begin{figure}[!t]
 \centering
 \subfigure[]{
@@ -298,39 +269,38 @@ covert attacks~\cite{Teixeira2015, smith2015covert}.
 \includegraphics[width=0.5\columnwidth]{figs/illustrativeExampleDrones-B_BW}
 }
 \caption{(a)~ \gls*{mav} genuine navigation data. (b)~Extract of some \gls*{mav}
-  navigation data disrupted by GPS attacks (solid lines 
+  navigation data disrupted by GPS attacks (solid lines
   represent genuine navigation data; dashed lines represent spoofed navigation data).\label{fig:fig2}}
-  %\hl{USE SOLID AND DOTTED LINES IN ADDITION TO BLUE AND RED %COLORS?}
 \end{figure}
 Assume now the merge of multiple navigation traces of a single \gls*{mav} over a given period of time, as depicted in
 Figure~\ref{fig:fig2}. The expected navigation data seen by the \gls*{cps}
 controller is depicted in Figure~\ref{fig:fig2}(a). The spoofed
-navigation data, due to the adversarial attacks, is depicted  by the 
-dashed lines in Figure~\ref{fig:fig2}(b). The covert attack conducted 
-by the adversary conceals the alteration of some of the navigation 
+navigation data, due to the adversarial attacks, is depicted  by the
+dashed lines in Figure~\ref{fig:fig2}(b). The covert attack conducted
+by the adversary conceals the alteration of some of the navigation
 paths. The defender conducts a learning process to guess the adversarial
 intentions. The defender also prioritizes assets that can get
 sacrificed as collateral damages (e.g., to offer some tactical
 victories to the adversary with the aim of reducing the adversarial
-power in the long term), e.g., by using some game-theoretic ideas. 
-The process allows the defender to get trusted by the adversary, i.e., 
-to make the adversary confident about the success of some 
-perpetrated actions. Practically speaking, the collateral damages 
-allow the defender to reinforce the defensive learning processes, 
-with the aim of handling and correcting the affected system 
-represented by Figure~\ref{fig:fig2}(b), to the original plans before 
-the execution of the adversarial actions (i.e., Figure~\ref{fig:fig2}(a)). Both graphs (the one seen by the defender and the one seen by 
-the adversary) evolve dynamically over time, and converge 
+power in the long term), e.g., by using some game-theoretic ideas.
+The process allows the defender to get trusted by the adversary, i.e.,
+to make the adversary confident about the success of some
+perpetrated actions. Practically speaking, the collateral damages
+allow the defender to reinforce the defensive learning processes,
+with the aim of handling and correcting the affected system
+represented by Figure~\ref{fig:fig2}(b), to the original plans before
+the execution of the adversarial actions (i.e., Figure~\ref{fig:fig2}(a)). Both graphs (the one seen by the defender and the one seen by
+the adversary) evolve dynamically over time, and converge
 eventually. Successful victories of the learning process
-conducted by the defender increases the converge likelihood 
+conducted by the defender increases the converge likelihood
 of the two graphs.
 
 \begin{comment}
 \subsection{Feedback Truthfullness Problem}
 
-\hl{Verify if we still anything else from the text below}. 
-Assume the adversary hacks the navigation system of a \gls*{mav} 
-and periodically takes control. The \gls*{mav} becomes a zombie. 
+\hl{Verify if we still anything else from the text below}.
+Assume the adversary hacks the navigation system of a \gls*{mav}
+and periodically takes control. The \gls*{mav} becomes a zombie.
 The adversarial actions are covert. For example,
 take control of a patrolling done swarm to achieve one's own goals,
 e.g., collecting information about individuals
@@ -351,19 +321,19 @@ such that the discriminator is deceived with high probability.
 
 \subsection{Related Work}
 
-Related work include the use of machine 
+Related work include the use of machine
 learning for cyber-physical protection, management of
-data quality (w.r.t. feedback-control systems), use of security 
-games and competitive learning. More detailed information 
+data quality (w.r.t. feedback-control systems), use of security
+games and competitive learning. More detailed information
 follow.
 
 \medskip
 
-\subsubsection{\gls*{cps} Protection Using Machine 
-Learning} 
+\subsubsection{\gls*{cps} Protection Using Machine
+Learning}
 
-The domain of \gls*{ai}, by means of the 
-subfields of search and machine learning, provides a large set of 
+The domain of \gls*{ai}, by means of the
+subfields of search and machine learning, provides a large set of
 techniques relevant to the resilience of a \gls*{cps}.  Supervised, unsupervised and
 reinforcement
 are the three main machine
@@ -374,55 +344,33 @@ ones, supervised machine leaning assigns labels to
 new data points. With unsupervised machine learning, the data points
 are unlabelled. Learning  consists of extracting information from
 data. Data points are grouped together into classes according to
-similarity. Human experts label the classes. 
+similarity. Human experts label the classes.
 
 In contrast, reinforcement learning rewards or penalizes the learner
-following the validity of inferred classifications. Learning is  from the successes 
+following the validity of inferred classifications. Learning is  from the successes
 and mistakes. Supervised and reinforcement machine learning is
-used for system identification and model fitting. 
+used for system identification and model fitting.
 Different alternative learning
 methods exist, based on different considerations on the type of model
 (e.g., rule-based, support-vector machines, deep learning models) and
 its properties (e.g., explainable models/decisions, efficiency). The
-perpetration of control-theoretic attacks 
+perpetration of control-theoretic attacks
 \cite{Teixeira2015,smith2015covert} may require a
 system identification phase performed by the adversary. Kernels
 methods~\cite{shawe2004kernel}, a kind of machine learning, can be used for system identification~\cite{PILLONETTO2014657,PILLONETTO201081}.
 
-%Resilience plans build upon rational reactions. Their performance
-%often requires rapid completion of search tasks. Their efficiency can
-%be greatly improved when the search are informed, i.e., when it
-%applies heuristics. The AI subfield of \emph{search} provides us with
-%algorithms and methods for complex decision making problems. For
-%example, systems based on Monte Carlo tree search have been proven
-%successful in difficult games (e.g.,
-%\href{https://en.wikipedia.org/wiki/AlphaGo}{AlphaGo} and
-%\href{https://en.wikipedia.org/wiki/AlphaZero}{AlphaZero}). Connection
-%between Monte Carlo tree search and reinforcement learning exists in
-%the AI literature~\cite{silver2009reinforcement,vodopivec2017monte}.
+\subsubsection{Data Quality and Source Heterogeneity}
 
-%\medskip
-
-%\begin{comment}
-%\mybox{Adversarial learning's goal is to \textbf{take advantage of
-%    model vulnerabilities and exploit them}. It can therefore
-%  compromise the security of a system. At the same time, it
-%  \textbf{can be used as a useful tool to find these vulnerabilities
-%    and repare them}.}\\
-%\end{comment}
-
-\subsubsection{Data Quality and Source Heterogeneity} 
-
-Learning methods designed to recognize malicious activities within large complex systems may be sensitive to the consequences of merging data from very 
+Learning methods designed to recognize malicious activities within large complex systems may be sensitive to the consequences of merging data from very
 heterogeneous sources. The learning process can be impacted by poor data quality, affecting the reliability of the  decisions that are made.
-For example, data sources can be unmalicious but of 
-little confidence. 
-This issue is important for the protection of the learning phase. 
-Adequate risk management calls for the implementation of data quality evaluation. Discriminators must be designed to cope with operational data relatively different and considerably more inaccurate than the training data. Taking into account data quality prevents bias and 
-integrity attacks aiming to deceive a discrimination process~\cite{papernot2016distillation}. 
-Conversely, discrimination algorithms  
+For example, data sources can be unmalicious but of
+little confidence.
+This issue is important for the protection of the learning phase.
+Adequate risk management calls for the implementation of data quality evaluation. Discriminators must be designed to cope with operational data relatively different and considerably more inaccurate than the training data. Taking into account data quality prevents bias and
+integrity attacks aiming to deceive a discrimination process~\cite{papernot2016distillation}.
+Conversely, discrimination algorithms
 affected by slight modifications of training data may be too
- sensitive. They can be exploited more easily by adversaries. 
+ sensitive. They can be exploited more easily by adversaries.
  There are trade offs that can be taken into account by a
 security game modeling risk management. An interesting avenue is
 considering the possibility of a classifier not producing an answer when data quality cannot be guaranteed.
@@ -431,41 +379,41 @@ A concept relatively well known by the classification community.
 However, to the best of our
 knowledge, its application to security needs more thought~\cite{de2000reject}.
 
-\subsubsection{Security Games and Competitive Learning} 
+\subsubsection{Security Games and Competitive Learning}
 
 In~\cite{barreno2010security}, the authors propose a
 taxonomy to characterize the different types of attacks
 targeting AI-based security approaches, for example, machine learning classification and discrimination techniques taking security decisions. This taxonomy focuses on the
-techniques employed to identify malicious artifacts such as, messages, codes, program inputs and outputs. 
-The work suggests to complement machine learning with game-theoretic security approaches, specially those in which the 
-adversary may alter the training data. These observations have 
+techniques employed to identify malicious artifacts such as, messages, codes, program inputs and outputs.
+The work suggests to complement machine learning with game-theoretic security approaches, specially those in which the
+adversary may alter the training data. These observations have
 been widely repeated and extended in the information security literature~\cite{papernot2016towards}.
 
 In this context, the principle of a security game amounts to quantifying the adversarial resources required to attack a system and
 the defensive capabilities of the latter. In this way, it is
-possible to determine optimal configurations to manage the risks of 
-attacks as a quest for defender vs. adversary equilibrium. Along these lines, authors in~\cite{papernot2016distillation} insists on the importance 
-of using learning techniques with access to real time data. Outdated data 
-increases the risk of making incorrect decisions by a defender~\cite{kantarciouglu2011classifier}. Data must be considered obsolete by a learning process at a certain 
-point in time~\cite{bulo2016randomized}. The use of utility 
-functions can be provided to formulate more realistic games. 
-Such functions do not necessarily need to be under 
+possible to determine optimal configurations to manage the risks of
+attacks as a quest for defender vs. adversary equilibrium. Along these lines, authors in~\cite{papernot2016distillation} insists on the importance
+of using learning techniques with access to real time data. Outdated data
+increases the risk of making incorrect decisions by a defender~\cite{kantarciouglu2011classifier}. Data must be considered obsolete by a learning process at a certain
+point in time~\cite{bulo2016randomized}. The use of utility
+functions can be provided to formulate more realistic games.
+Such functions do not necessarily need to be under
 the classical computing realm. Extended machine learning functions relying on quantum techniques are expected~\cite{schuld2018supervised}.
 
-\subsubsection{The Quantum Advantage} 
+\subsubsection{The Quantum Advantage}
 
 The time complexity of quantum search
-techniques are data size independent. Along the same line, 
+techniques are data size independent. Along the same line,
 quantum machine learning, i.e.,
 the use of quantum computing for machine learning, has great potential
 because the time complexity of classification is independent of the number
 of data points. Schuld and Killoran investigated the use of kernel
 methods~\cite{shawe2004kernel}, that can be used for system
 identification, for quantum machine
-learning~\cite{schuld2018supervised,Schuld2019}. 
+learning~\cite{schuld2018supervised,Schuld2019}.
 Encoding of classical
 data into a quantum state is needed. A similar approach has been
-proposed by Havl{\'\i}{\v c}ek et al.~\cite{havlicek2019}. 
+proposed by Havl{\'\i}{\v c}ek et al.~\cite{havlicek2019}.
 
 Schuld and
 Petruccione~\cite{schuld2018supervised} discussed in details the application
@@ -478,14 +426,7 @@ which is comparable to the cost of classical machine learning
 classification. This is right now the main barrier. The approach that will
 result in real gains is quantum data generation and quantum data
 processing, there will be no need to translate from classical to quantum
-data. Quantum data generation requires quantum sensing. 
-
-%(\hl{Point out
-%  to Section III, Figure 6 (photonic-circuit model), as an %example of
-%  this requirement?}).
-%~\cite{Degen2017}.
-%% Successful implementation of this approach
-%% will give the quantum advantage, to the adversary or \gls*{cps}?
+data. Quantum data generation requires quantum sensing.
 
 \section{Faking and Discriminating Navigation Data}
 \label{sec:approach}
@@ -496,20 +437,20 @@ generator~\cite{NIPS2014_5423}. The discriminator is the defender's
 tool. The generator is the adversary tool. There are genuine (real) data and
 generated (fake) data. The generator aims at generating data to
 deceive the discriminator. The discriminator is trained with genuine and
-generated data. The training process aims to a discriminator able to 
-label genuine or generated data correctly, with high probability 
+generated data. The training process aims to a discriminator able to
+label genuine or generated data correctly, with high probability
 of correctness. The
-adversary wins the game when this probability is at least 50\%. 
+adversary wins the game when this probability is at least 50\%.
 To this end,
-the generator is trained, assuming it can challenge the discriminator 
+the generator is trained, assuming it can challenge the discriminator
 with data and access to the verdict.
-Training is an iterative process. Training iterates until the production 
+Training is an iterative process. Training iterates until the production
 of fake data is accepted by the discriminator with high probability.
 
 In a \gls*{qgan}~\cite{Dallaire2018,Lloyd2018} the data can be
 quantum. Using a \href{https://www.parrot.com/global/support/products/mambo-fpv}{Parrot Mambo} \gls*{mav}, we generate genuine
-navigation data. The navigation is classical and in continuous domains. 
-Using probability amplitude encoding, the genuine (classical) data 
+navigation data. The navigation is classical and in continuous domains.
+Using probability amplitude encoding, the genuine (classical) data
 is mapped to quantum data and used to train a discriminator, defined as
 a qubit-quantum circuit. Using a photonic-quantum circuit, we
 validate that the adversary can learn to generate fake data
@@ -541,7 +482,7 @@ examples.
 The elementary circuit design $\mathcal{E(\omega)}$ of Farhi and
 Neven~\cite{Farhi2018} is used, pictured in
 Figure~\ref{fig:elementarycircuit}. Every elementary circuit processes $n$ qubits.
-In Figure~\ref{fig:elementarycircuit}, $n$ is three. 
+In Figure~\ref{fig:elementarycircuit}, $n$ is three.
 The circuit formal parameter $\omega$ is a $n$ by three matrix of rotation angles.
 For $i=0,1,\ldots,n-1$, the gate
 $Rot(\omega_{i,0},\omega_{i,1},\omega_{i,2})$ applies the $x$, $y$ and
@@ -564,18 +505,18 @@ CNOT gate.
 \label{fig:discriminatorcircuit}
 \end{center}
 \end{figure}
-The discriminator circuit $\mathcal{D(\omega)}$ uses $m$ layers of elementary circuits $\mathcal{E}$. 
+The discriminator circuit $\mathcal{D(\omega)}$ uses $m$ layers of elementary circuits $\mathcal{E}$.
 In Figure~\ref{fig:discriminatorcircuit}, $m$ is two. Layer $0$ accepts
 the input. Layer $i$ quantum outputs are connected to layer $i+1$ quantum
 inputs.
-In this case, the circuit formal parameter $\omega$ is a $m$ by $n$ by three matrix 
+In this case, the circuit formal parameter $\omega$ is a $m$ by $n$ by three matrix
 of rotation angles.
 Layer $i$ is actualized with sub-matrix $\omega_i$.
 
 % input
 
-We use probability amplitude encoding, because we can represent in a given number 
-of qubits an exponential number of data points. Probability amplitude encoding 
+We use probability amplitude encoding, because we can represent in a given number
+of qubits an exponential number of data points. Probability amplitude encoding
 requires normalized data.
 Let $x_0,\ldots,x_{n-1}$ be the data values, their normal form is
 $$
@@ -621,15 +562,15 @@ matrix $\omega$ such that the output
 of the circuit is approaching $+1$, which corresponds to qubit $\vert
 0 \rangle$. Using a gradient descent technique, the optimizer
 iterates with genuine data sets and fake data sets.
-Gradient descent means that the optimizer tries to minimize the cost represented 
+Gradient descent means that the optimizer tries to minimize the cost represented
 by the difference $p_F-p_R$.
 \begin{defn}[Discriminator optimization problem]
-Given the quantum input state $\phi$, 
-probability amplitude encoding fake navigation data, 
-and quantum input state $\psi$, 
+Given the quantum input state $\phi$,
+probability amplitude encoding fake navigation data,
+and quantum input state $\psi$,
 probability amplitude encoding genuine navigation data,
-training the discriminator $\mathcal{D}(\omega)$ is the optimization problem 
-that consists of finding the matrix $\omega$ ($m\times n\times 3$) 
+training the discriminator $\mathcal{D}(\omega)$ is the optimization problem
+that consists of finding the matrix $\omega$ ($m\times n\times 3$)
 that gives the smallest difference $p_F-p_R$.
 \end{defn}
 
@@ -641,8 +582,8 @@ as close to one as possible. When training the generator, it is
 assumed that the adversary can submit its fake data to the
 discriminator and access to the verdict. For the generator,
 we investigated the three following designs: (1) a first generator using a
-\gls*{mav} model, (2) a qubit-quantum circuit, and (3) 
-a photonic quantum circuit. 
+\gls*{mav} model, (2) a qubit-quantum circuit, and (3)
+a photonic quantum circuit.
 
 \subsubsection{MAV model design}
 
@@ -655,8 +596,8 @@ the \gls*{mav} model is fine tuned until a high probability of fake
 data acceptance is reached. The challenge with this approach is that
 the adversary needs a detailed understanding of the dynamics of the
 \gls*{mav}. We aim at a method that does require no knowledge on the
-part of the adversary about the \gls*{mav} dynamics. In other words, 
-we aim at an automated learning process. Two alternative designs for 
+part of the adversary about the \gls*{mav} dynamics. In other words,
+we aim at an automated learning process. Two alternative designs for
 such a purpose follow.
 
 \subsubsection{Qubit-quantum Circuit}
@@ -678,7 +619,7 @@ such a purpose follow.
 \end{center}
 \end{figure}
 The fake data can be generated with a qubit-quantum circuit, with an
-architecture as the one pictured in Figure~\ref{fig:generatorqubitcircuit}. 
+architecture as the one pictured in Figure~\ref{fig:generatorqubitcircuit}.
 The generator circuit is similar to the discriminator circuit, pictured in
 Figure~\ref{fig:discriminatorcircuit}. For the generator circuit, the
 inputs are all at $\ket{0}$. The optimization is done on the rotation
@@ -687,12 +628,12 @@ process is automatic. The generator outputs the navigation data with
 entropy. The outputs of the generator are directly connected to the
 inputs of the discriminator. The generated navigation data is encoded
 in the probability amplitudes of the quantum state produced by the
-generator. Although it works, the navigation data must be transformed 
-to a quantum format. Hence, the data is unusable for practically 
+generator. Although it works, the navigation data must be transformed
+to a quantum format. Hence, the data is unusable for practically
 perpetrating the attack. Indeed,
 qubit-circuit outputs, obtained through measurements, collapse to
 zeros and ones. To be usable in an attack scenario, the data needs to
-be transformed from classical continuous domains. An alternative 
+be transformed from classical continuous domains. An alternative
 design for such a purpose follows next.
 
 \subsubsection{Photonic quantum circuit}
@@ -715,7 +656,7 @@ Photonic devices are trained to generate photon numbers corresponding to navigat
 by the discriminator.
 A photonic quantum circuit is shown in Figure~\ref{fig:photonicdevice}.
 It has a single line, called a {\em qumode}.
-The input of the circuit, $\ket{0}$, is the zero energy level. There 
+The input of the circuit, $\ket{0}$, is the zero energy level. There
 are two Gaussian devices. There is a displacement gate
 $D$, with parameter $\alpha$, and a rotation gate $R$, with parameter $\phi$.
 They change the circuit energy level and expected numbers of output photons.
@@ -745,8 +686,8 @@ that the probability of acceptance of the fake data by the discriminator is high
 
 The architecture pictured in Figure~\ref{fig:generatorqumodetcircuit}
 shows a generator feeding a discriminator circuit through a probability amplitude
-encoder $\mathcal{A}$, including normalization. The \gls*{mav} navigation 
-data set is amplitude encoded according to Eq.~\eqref{eq:amplitudeencoding}. 
+encoder $\mathcal{A}$, including normalization. The \gls*{mav} navigation
+data set is amplitude encoded according to Eq.~\eqref{eq:amplitudeencoding}.
 Since $n$ qubits can amplitude-encode $2^n$ datum, a $n$-qubit discriminator
 is fed by a generator with $2^n$ qumodes. In
 Figure~\ref{fig:generatorqumodetcircuit}, $n$ is two.
@@ -757,21 +698,21 @@ to minimize the cost represented by the term $-p_F$. The outcome
 of the optimization of the generator is two column vectors of
 displacements and rotation angles, $2^n$ rows each, actualizing the
 generator circuit such that the probability that fake data is
-recognized as true is high. 
+recognized as true is high.
 \begin{defn}[Generator optimization problem]
-Given the quantum input state $\psi$, 
-probability amplitude encoding fake navigation data, 
-the discriminator $\mathcal{D}(\omega)$, 
+Given the quantum input state $\psi$,
+probability amplitude encoding fake navigation data,
+the discriminator $\mathcal{D}(\omega)$,
 actualized with rotation angle matrix $\omega$,
-training the generator $\mathcal{G}(\alpha,\phi)$ is the optimization problem 
-that consists of finding the column vectors of the rotation angles  
-$\alpha$ and $\phi$ ($2^n$ rows each) 
+training the generator $\mathcal{G}(\alpha,\phi)$ is the optimization problem
+that consists of finding the column vectors of the rotation angles
+$\alpha$ and $\phi$ ($2^n$ rows each)
 that gives the smallest difference $-p_F$.
 \end{defn}
 
 The learning process is automatic. The output of
 the photonic quantum circuit is classical and in the continuous
-domain. It is directly usable by the adversary to generate 
+domain. It is directly usable by the adversary to generate
 fake navigation data during a covert attack.
 The circuit complexity is although in $\mathcal{O}(2^{n})$.
 
@@ -785,8 +726,8 @@ The circuit complexity is although in $\mathcal{O}(2^{n})$.
   discriminator and generator.\label{fig:learningtime}}
 \end{figure}
 
-The performance of the photonic-circuit design described in Section~\ref{sec:approach} has been validated through simulation on 
-a classical computing platform. Simulations were conducted using 
+The performance of the photonic-circuit design described in Section~\ref{sec:approach} has been validated through simulation on
+a classical computing platform. Simulations were conducted using
 an Intel Xeon 32-core 2.70~GHz server, with 256~GB of memory.
 We generated genuine navigation for a \href{https://www.parrot.com/global/support/products/mambo-fpv}{Parrot Mambo} \gls*{mav}.
 In the scenario, the \gls*{mav} takes off one~meter.
@@ -794,24 +735,24 @@ Does two circles on the horizontal plane, then lands.
 The navigation data consists of $x$, $y$ and $z$ velocity triples.
 The whole scenario generates less than $64$ real number values.
 
-Figure~\ref{fig:learningtime} plots the discriminator and generator 
+Figure~\ref{fig:learningtime} plots the discriminator and generator
 learning time (ms) versus the number of qubits available.
 The $x$ axis represents the number of qubits.
 The left $y$ axis refers to the learning time (ms).
 The right $y$ axis shows the corresponding probability of real true,
 for the discriminator, and probability of fake true, for the generator.
 Hundred optimization iterations were done for each case.
-Negligible error margins are included, but not visible since they 
+Negligible error margins are included, but not visible since they
 are very tiny.
 The discriminator is trained with six different genuine navigation data sets.
 A navigation data set is picked at random at every optimization iteration.
-The discriminator 
+The discriminator
 optimization time grows exponentially.
 Due to the exponential complexity of the generator circuit (in $\mathcal{O}(2^{n})$),
-the optimization time also grows exponentially. 
+the optimization time also grows exponentially.
 On our simulation platform, it becomes unpractical from six qubits.
 The learning time becomes in the order of days.
-Amplitude encoding has also $\mathcal{O}(2^{n})$ time complexity, 
+Amplitude encoding has also $\mathcal{O}(2^{n})$ time complexity,
 but it is only executed once at the start of the optimization process.
 
 \section{Conclusion}
@@ -819,15 +760,15 @@ but it is only executed once at the start of the optimization process.
 
 We have investigated the use of \gls*{qgan} designs to generate fake \gls*{mav} navigation data. We assume the same approach to discriminate between genuine and fake \gls*{mav} navigation data. The goal pursued by the adversary is to generate fake data that is accepted
 as true by a trained discriminator.
-On the other hand, the discriminator must accept with high probabilities true navigation data and reject fake one. 
-The elaborated quantum circuits have been evaluated running on a 
+On the other hand, the discriminator must accept with high probabilities true navigation data and reject fake one.
+The elaborated quantum circuits have been evaluated running on a
 a classical computing platform.
 As demonstrated in Figure~\ref{fig:learningtime},
-the exponentially growing time complexity in the number of qubits is an obstacle to 
+the exponentially growing time complexity in the number of qubits is an obstacle to
 scalability.
 We identified hurdles that must be overcome by the upcoming evolution of quantum machine learning.
-The main hurdle for the adversary is the generation of navigation data in 
-classical continuous domains, i.e., real numbers, and the cost of the 
+The main hurdle for the adversary is the generation of navigation data in
+classical continuous domains, i.e., real numbers, and the cost of the
 transformation into the quantum format at every optimization iteration.
 Further research is needed to improve and find alternatives to the design depicted in Figure~\ref{fig:generatorqumodetcircuit}.\\
 
