@@ -1,12 +1,9 @@
-Faking and Discriminating the Navigation Data of a Micro Aerial
-Vehicle Using Quantum Generative Adversarial Networks
+Faking and Discriminating the Navigation Data of a Micro Aerial Vehicle Using Quantum Generative Adversarial Networks
 ===
 
-### Michel Barbeau, Carleton University, School of Computer Science,
-    Canada.
+### Michel Barbeau, Carleton University, School of Computer Science, Canada.
 
-### Joaquin Garcia-Alfaro, Institut Polytechnique de Paris, CNRS UMR
-    5157 SAMOVAR, Télécom SudParis, France.
+### Joaquin Garcia-Alfaro, Institut Polytechnique de Paris, CNRS UMR 5157 SAMOVAR, Télécom SudParis, France.
 
 <a href="https://arxiv.org/abs/1907.03038">https://arxiv.org/abs/1907.03038</a>
 
