@@ -1,5 +1,5 @@
 
-# Quantum Generative Adversarial Network
+# Quantum Generative Adversarial Network for MAVs
 
 ## Authors
 
