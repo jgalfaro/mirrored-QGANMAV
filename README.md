@@ -15,7 +15,7 @@ Reuse code from:
 
 <a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_QGAN.py">Quantum Generative Adversarial Network</a>
 
-<a href="https://pennylane.readthedocs.io/en/latest/tutorials/gaussian_transformation.html">Basic tutorial: Gaussian transformation</a>
+<a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_gaussian_transformation.py">Gaussian transformation</a>
 
 ## 1. Preamble
 
