@@ -1,9 +1,12 @@
-Faking and Discriminating the Navigation Data of a Micro Aerial Vehicle Using Quantum Generative Adversarial Networks
+Faking and Discriminating the Navigation Data of a Micro Aerial
+Vehicle Using Quantum Generative Adversarial Networks
 ===
 
-### Michel Barbeau, Carleton University, School of Computer Science, Canada.
+### Michel Barbeau, Carleton University, School of Computer Science,
+    Canada.
 
-### Joaquin Garcia-Alfaro, Institut Polytechnique de Paris, CNRS UMR 5157 SAMOVAR, Télécom SudParis, France.
+### Joaquin Garcia-Alfaro, Institut Polytechnique de Paris, CNRS UMR
+    5157 SAMOVAR, Télécom SudParis, France.
 
 <a href="https://arxiv.org/abs/1907.03038">https://arxiv.org/abs/1907.03038</a>
 
@@ -167,7 +170,7 @@ applies the <img src="https://latex.codecogs.com/gif.latex?$x$"/>,
 src="https://latex.codecogs.com/gif.latex?$z$"/>-axis rotations <img
 src="https://latex.codecogs.com/gif.latex?$\omega_{i,0}$"/>,
 <img src="https://latex.codecogs.com/gif.latex?$\omega_{i,1}$"/>,
-<img src="https://latex.codecogs.com/gif.latex?$\omega_{i,2}$"/> to qubit 
+<img src="https://latex.codecogs.com/gif.latex?$\omega_{i,2}$"/> to qubit
 <img src="https://latex.codecogs.com/gif.latex?$\left\vert{\psi_i}\right\rangle$"/>. The
 three rotations can take a qubit from any state to any state. For
 entanglement purposes, qubit <img
