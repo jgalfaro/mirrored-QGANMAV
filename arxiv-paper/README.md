@@ -118,6 +118,26 @@ defender. The role of the defender is to recognize the activities
 performed by the adversary, i.e., identify the intentions of the
 adversary and correct the adversarial actions.
 
+### A. Covert Attack and Feedback Truthfulness
+
+A covert attack is an aggression on the state of a CPS where the
+adversary attempts to be invisible [27]. It is assumed that the
+adversary knows or can learn the dynamics of the CPS. While the attack
+is being carried out, the perpetrator compensates the impact of the
+attack over the system by providing fake information to the system
+operators (e.g., by concealing the effect of the spoofed inputs).
+Hence, from the point of view of an observer, responsible for
+detecting the attack, the execution of the CPS looks normal. Assume
+the scenario shown in Figure 1. It depicts the disruption of the
+navigation data of a series of MAVs. The manipulation is conducted by
+a remote adversary via, e.g., GPS jamming and spoofing attacks [1],
+[12]. The goal of the adversary is to conduct navigation data
+modifications (e.g., swapping the x;y coordinates of the navigation
+traces) and hide the disruption to the defender, with additional
+cyber-physical covert attacks [27], [26].
+
+![Fig. 1. MAV navigation data trace disruptions.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig1.png?raw=true)
+
 ## III. FAKING AND DISCRIMINATING NAVIGATION DATA
 
 Using the Generative Adversarial Network (GAN) framework,
