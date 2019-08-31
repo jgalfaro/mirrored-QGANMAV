@@ -291,8 +291,8 @@ Training iterates until the production of fake data is accepted
 by the discriminator with high probability.
 
 In a QGAN [5], [15] the data can be quantum. Using a
-[https://www.parrot.com/global/support/products/mambo-fpv](Parrot
-Mambo) MAV, we generate genuine navigation data. The navigation is
+[Parrot Mambo](https://www.parrot.com/global/support/products/mambo-fpv]
+MAV, we generate genuine navigation data. The navigation is
 classical and in continuous domains. Using probability amplitude
 encoding, the genuine (classical) data is mapped to quantum data and
 used to train a discriminator, defined as a qubit-quantum circuit.
