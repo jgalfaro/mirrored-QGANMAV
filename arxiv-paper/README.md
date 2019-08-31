@@ -128,7 +128,7 @@ attack over the system by providing fake information to the system
 operators (e.g., by concealing the effect of the spoofed inputs).
 Hence, from the point of view of an observer, responsible for
 detecting the attack, the execution of the CPS looks normal. Assume
-the scenario shown in Figure 1. It depicts the disruption of the
+the scenario shown in Fig. 1. It depicts the disruption of the
 navigation data of a series of MAVs. The manipulation is conducted by
 a remote adversary via, e.g., GPS jamming and spoofing attacks [1],
 [12]. The goal of the adversary is to conduct navigation data
@@ -139,10 +139,10 @@ cyber-physical covert attacks [27], [26].
 ![Fig. 1. MAV navigation data trace disruptions.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig1.png?raw=true)
 
 Assume now the merge of multiple navigation traces of a single MAV
-over a given period of time, as depicted in Figure 2. The expected
-navigation data seen by the CPS controller is depicted in Figure 2(a).
+over a given period of time, as depicted in Fig. 2. The expected
+navigation data seen by the CPS controller is depicted in Fig. 2(a).
 The spoofed navigation data, due to the adversarial attacks, is
-depicted by the dashed lines in Figure 2(b). The covert attack
+depicted by the dashed lines in Fig. 2(b). The covert attack
 conducted by the adversary conceals the alteration of some of the
 navigation paths. The defender conducts a learning process to guess
 the adversarial intentions. The defender also prioritizes assets that
@@ -153,9 +153,9 @@ process allows the defender to get trusted by the adversary, i.e., to
 make the adversary confident about the success of some perpetrated
 actions. Practically speaking, the collateral damages allow the
 defender to reinforce the defensive learning processes, with the aim
-of handling and correcting the affected system represented by Figure
+of handling and correcting the affected system represented by Fig.
 2(b), to the original plans before the execution of the adversarial
-actions (i.e., Figure 2(a)). Both graphs (the one seen by the defender
+actions (i.e., Fig. 2(a)). Both graphs (the one seen by the defender
 and the one seen by the adversary) evolve dynamically over time, and
 converge eventually. Successful victories of the learning process
 conducted by the defender increases the converge likelihood of the two
@@ -305,8 +305,8 @@ to nothing else but the verdict of the discriminator.
 We build upon the PennyLane [3] variational classifier [21] and QGAN
 [22] examples. The elementary circuit design <img
 src="https://latex.codecogs.com/gif.latex?\mathcal{E}(\omega)" /> of
-Farhi and Neven [8] is used, pictured in Figure 3. Every elementary
-circuit processes qubits. In Figure 3, <img
+Farhi and Neven [8] is used, pictured in Fig. 3. Every elementary
+circuit processes qubits. In Fig. 3, <img
 src="https://latex.codecogs.com/gif.latex?$n$" /> is three. The
 circuit formal parameter <img
 src="https://latex.codecogs.com/gif.latex?$w$"/> is a <img
@@ -387,8 +387,8 @@ designs for such a purpose follow.
 #### 2) Qubit-quantum Circuit
 
 The fake data can be generated with a qubit-quantum circuit, with an
-architecture as the one pictured in Figure 5. The generator circuit is
-similar to the discriminator circuit, pictured in Figure 4. For the
+architecture as the one pictured in Fig. 5. The generator circuit is
+similar to the discriminator circuit, pictured in Fig. 4. For the
 generator circuit, the inputs are all at <img
 src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>.
 The optimization is done on the rotation angles, using the verdict of
@@ -411,7 +411,7 @@ next.
 The generator combines photonic quantum computing [14] and
 qubit-quantum computing. Photonic devices are trained to generate
 photon numbers corresponding to navigation data accepted by the
-discriminator. A photonic quantum circuit is shown in Figure 6. It has
+discriminator. A photonic quantum circuit is shown in Fig. 6. It has
 a single line, called a *qumode*. The input of the circuit, <img
 src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>, is
 the zero energy level. There are two Gaussian devices. There is a
@@ -434,14 +434,14 @@ src="https://latex.codecogs.com/gif.latex?\phi"/> such that the
 probability of acceptance of the fake data by the discriminator is
 high.
 
-The architecture pictured in Figure 7 shows a generator feeding a
+The architecture pictured in Fig. 7 shows a generator feeding a
 discriminator circuit through a probability amplitude encoder <img
 src="https://latex.codecogs.com/gif.latex?\cal{A}"/>, including
 normalization. The MAV navigation data set is amplitude encoded
 according to Eq. (1). Since n qubits can amplitude-encode <img
 src="https://latex.codecogs.com/gif.latex?$2^n$"/> datum, a n-qubit
 discriminator is fed by a generator with <img
-src="https://latex.codecogs.com/gif.latex?$2^n$"/> qumodes. In Figure
+src="https://latex.codecogs.com/gif.latex?$2^n$"/> qumodes. In Fig.
 7, <img
 src="https://latex.codecogs.com/gif.latex?$n$"/> is two.
 
@@ -496,7 +496,7 @@ less than 64 real number values.
 ![Fig. 8. Learning time (ms) versus the number of qubits for the discriminator
 and generator.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig8.png?raw=true)
 
-Figure 8 plots the discriminator and generator learning time (ms)
+Fig. 8 plots the discriminator and generator learning time (ms)
 versus the number of qubits available. The x axis represents the
 number of qubits. The left y axis refers to the learning time (ms).
 The right y axis shows the corresponding probability of real true, for
@@ -526,7 +526,7 @@ adversary is to generate fake data that is accepted as true by a
 trained discriminator. On the other hand, the discriminator must
 accept with high probabilities true navigation data and reject fake
 one. The elaborated quantum circuits have been evaluated running on a
-a classical computing platform. As demonstrated in Figure 8, the
+a classical computing platform. As demonstrated in Fig. 8, the
 exponentially growing time complexity in the number of qubits is an
 obstacle to scalability. We identified hurdles that must be overcome
 by the upcoming evolution of quantum machine learning. The main hurdle
@@ -534,7 +534,7 @@ for the adversary is the generation of navigation data in classical
 continuous domains, i.e., real numbers, and the cost of the
 transformation into the quantum format at every optimization
 iteration. Further research is needed to improve and find alternatives
-to the design depicted in Figure 7.
+to the design depicted in Fig. 7.
 
 
 
