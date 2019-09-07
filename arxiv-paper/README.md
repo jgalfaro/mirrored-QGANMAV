@@ -437,7 +437,6 @@ src="https://latex.codecogs.com/gif.latex?$\omega(m%20\times%20n%20\times%203)$"
 that gives the smallest difference <img
 src="https://latex.codecogs.com/gif.latex?$pF%20-%20pR$"/>.
 
-![Fig. 5. Generator qubit circuit feeding the discriminator circuit.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig5.png?raw=true)
 
 
 ### B. Generator Design
@@ -464,6 +463,9 @@ the dynamics of the MAV. We aim at a method that does require no
 knowledge on the part of the adversary about the MAV dynamics. In
 other words, we aim at an automated learning process. Two alternative
 designs for such a purpose follow.
+
+![Fig. 5. Generator qubit circuit feeding the discriminator circuit.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig5.png?raw=true)
+
 
 #### 2) Qubit-quantum Circuit
 
