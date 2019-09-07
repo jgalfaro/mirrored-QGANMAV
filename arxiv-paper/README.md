@@ -359,13 +359,19 @@ Probability amplitude encoding requires normalized data. Let <img
 src="https://latex.codecogs.com/gif.latex?$x_0,%20\ldots,%20x_{n-1}$"/>
 be the data values, their normal form is:
 
+![Eq 0.1](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq0.1.png?raw=true)
+
 where:
+
+![Eq 0.2](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq0.2.png?raw=true)
 
 With probability amplitude encoding, up to <img
 src="https://latex.codecogs.com/gif.latex?2^n"/> single scalar values
 can be represented in probability amplitudes in the input circuit
 quantum state. The input quantum state with probability amplitude
 encoded data has the following format:
+
+![Eq (1)](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq1.png?raw=true)
 
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
