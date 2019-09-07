@@ -167,7 +167,7 @@ graphs.
 
 Related work include the use of machine learning for
 cyber-physical protection, management of data quality (w.r.t.
-feedback-control systems), use of security games and competitive
+feedback-control systems), use of security games and 
 learning. More detailed information follow.
 
 #### 1) CPS Protection Using Machine Learning
@@ -220,7 +220,7 @@ principle. A concept relatively well known by the classification
 community. However, to the best of our knowledge, its application to
 security needs more thought [6].
 
-#### 3) Security Games and Competitive Learning
+#### 3) Security Games and Learning
 
 In [2], the authors propose a taxonomy to characterize the different
 types of attacks targeting AI-based security approaches, for example,
