@@ -425,13 +425,17 @@ genuine data sets and fake data sets. Gradient descent means that the
 optimizer tries to minimize the cost represented by the difference <img
 src="https://latex.codecogs.com/gif.latex?$pF%20-%20pR$"/>.
 
-*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.*
+*Definition 1 (Discriminator optimization problem):* Given the quantum
+input state <img src="https://latex.codecogs.com/gif.latex?\phi"/>,
+probability amplitude encoding fake navigation data, and quantum input
+state <img src="https://latex.codecogs.com/gif.latex?\psi"/>,
+probability amplitude encoding genuine navigation data, training the
+discriminator <img
+src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"/> is
+the optimization problem that consists of finding the matrix <img
+src="https://latex.codecogs.com/gif.latex?$\omega(m%20\times%20n%20\times%203)$"/>
+that gives the smallest difference <img
+src="https://latex.codecogs.com/gif.latex?$pF%20-%20pR$"/>.
 
 ![Fig. 5. Generator qubit circuit feeding the discriminator circuit.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig5.png?raw=true)
 
