@@ -352,6 +352,21 @@ rotation angles. Layer <img
 src="https://latex.codecogs.com/gif.latex?$i$"/> is actualized with
 sub-matrix <img src="https://latex.codecogs.com/gif.latex?\omega_i"/>.
 
+
+We use probability amplitude encoding, because we can represent in a
+given number of qubits an exponential number of data points.
+Probability amplitude encoding requires normalized data. Let <img
+src="https://latex.codecogs.com/gif.latex?x_0, \ldots, x_{n-1}"/> be
+the data values, their normal form is:
+
+where:
+
+With probability amplitude encoding, up to <img
+src="https://latex.codecogs.com/gif.latex?2^n"/> single scalar values
+can be represented in probability amplitudes in the input circuit
+quantum state. The input quantum state with probability amplitude
+encoded data has the following format:
+
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut
