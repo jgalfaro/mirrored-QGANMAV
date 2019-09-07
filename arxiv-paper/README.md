@@ -356,8 +356,8 @@ sub-matrix <img src="https://latex.codecogs.com/gif.latex?\omega_i"/>.
 We use probability amplitude encoding, because we can represent in a
 given number of qubits an exponential number of data points.
 Probability amplitude encoding requires normalized data. Let <img
-src="https://latex.codecogs.com/gif.latex?$x_0, \ldots, x_{n-1}$"/> be
-the data values, their normal form is:
+src="https://latex.codecogs.com/gif.latex?$x_0,%20\ldots,%20x_{n-1}$"/>
+be the data values, their normal form is:
 
 where:
 
