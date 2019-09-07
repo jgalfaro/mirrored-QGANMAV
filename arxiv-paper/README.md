@@ -381,12 +381,34 @@ src="https://latex.codecogs.com/gif.latex?$r$"/> ranges in the
 continuous interval <img
 src="https://latex.codecogs.com/gif.latex?$+1$"/> down to <img
 src="https://latex.codecogs.com/gif.latex?$-1$"/>, respectively
-corresponding to qubits j0i and j1i. Intermediate values represent
-superpositions of qubits j0i and j1i. The output is interpreted as
-follows. When it is +1, the data is accepted as true. When it is 􀀀1,
-the data is rejected and considered fake. The output r is converted to
-a probability value, in the interval [0;1], using the following
-conversion:
+corresponding to qubits <img
+src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
+<img
+src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
+Intermediate values represent superpositions of qubits <img
+src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
+<img
+src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
+The output is interpreted as follows. When it is <img
+src="https://latex.codecogs.com/gif.latex?$+1$"/>, the data is
+accepted as true. When it is <img
+src="https://latex.codecogs.com/gif.latex?$-1$"/>, the data is
+rejected and considered fake. The output <img
+src="https://latex.codecogs.com/gif.latex?$r$"/> is converted to a
+probability value, in the interval <img
+src="https://latex.codecogs.com/gif.latex?$[0;1]$"/>, using the
+following conversion:
+
+![Eq (2)](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq2.png?raw=true)
+
+When genuine data is submitted on the inputs <img
+src="https://latex.codecogs.com/gif.latex?$\vert%20\psi%20\rangle$"/>
+of the discriminator, the value <img
+src="https://latex.codecogs.com/gif.latex?$p$"/> in Eq. (2) expresses
+the probability of real true <img
+src="https://latex.codecogs.com/gif.latex?$p$R"/>. When fake data submitted, the value p
+corresponds to the probability of fake true <img
+src="https://latex.codecogs.com/gif.latex?$p$F"/>.
 
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
