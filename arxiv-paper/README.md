@@ -329,20 +329,20 @@ src="https://latex.codecogs.com/gif.latex?$i$"/> is connected to qubit
 <img src="https://latex.codecogs.com/gif.latex?$i+1$"/> modulo <img
 src="https://latex.codecogs.com/gif.latex?$n$"/> using a CNOT gate.
 
-The discriminator circuit <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"/> uses
-<img src="https://latex.codecogs.com/gif.latex?$m$"/> layers of
-elementary circuits <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{E}"/>. In Figure 4,
-<img src="https://latex.codecogs.com/gif.latex?$m$"/> is two. Layer 0
-accepts the input.
-
 ![Fig. 3. Three-qubit elementary circuit layer.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig3.png?raw=true)
 
 ![Fig. 4. Discriminator circuit made of two layered elementary circuits.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig4.png?raw=true)
 
-Layer <img src="https://latex.codecogs.com/gif.latex?$i$"/> quantum
-outputs are connected to layer <img
+The discriminator circuit <img
+src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"/> uses
+<img src="https://latex.codecogs.com/gif.latex?$m$"/> layers of
+elementary circuits <img
+src="https://latex.codecogs.com/gif.latex?\mathcal{E}"/>.
+
+In Fig. 4, <img src="https://latex.codecogs.com/gif.latex?$m$"/> is
+two. Layer 0 accepts the input. Layer <img
+src="https://latex.codecogs.com/gif.latex?$i$"/> quantum outputs are
+connected to layer <img
 src="https://latex.codecogs.com/gif.latex?$i+1$"/> quantum inputs. In
 this case, the circuit formal parameter <img
 src="https://latex.codecogs.com/gif.latex?\omega"/> is a <img
