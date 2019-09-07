@@ -13,6 +13,8 @@ Version: August 30, 2019
 
 <a href="https://github.com/jgalfaro/mirrored-QGANMAV/tree/master/arxiv-paper">Associated Paper</a> available on <a href="">https://arxiv.org/abs/1907.03038</a>.
 
+<a href="http://www-public.imtbs-tsp.eu/~garcia_a/web/prototypes/QGANMAV/">Sample videocaptures</a>.
+
 Reused code from:
 
 <a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_variational_classifier.py">Variational classifier - Iris classification</a>
