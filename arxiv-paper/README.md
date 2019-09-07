@@ -191,7 +191,7 @@ learning is used for system identification and model fitting.
 Different alternative learning methods exist, based on different
 considerations on the type of model (e.g., rule-based, support-vector
 machines, deep learning models) and its properties (e.g., explainable
-models/decisions, efficiency). The perpetration of controltheoretic
+models/decisions, efficiency). The perpetration of control-theoretic
 attacks [27], [26] may require a system identification phase performed
 by the adversary. Kernels methods [25], a kind of machine learning,
 can be used for system identification [19], [20].
