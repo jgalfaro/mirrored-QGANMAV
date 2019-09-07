@@ -373,6 +373,21 @@ encoded data has the following format:
 
 ![Eq (1)](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq1.png?raw=true)
 
+In Figure 4, layer <img
+src="https://latex.codecogs.com/gif.latex?$m-1$"/> produces the output
+expectation <img src="https://latex.codecogs.com/gif.latex?$r$"/> on
+line 0. The output <img
+src="https://latex.codecogs.com/gif.latex?$r$"/> ranges in the
+continuous interval <img
+src="https://latex.codecogs.com/gif.latex?$+1$"/> down to <img
+src="https://latex.codecogs.com/gif.latex?$-1$"/>, respectively
+corresponding to qubits j0i and j1i. Intermediate values represent
+superpositions of qubits j0i and j1i. The output is interpreted as
+follows. When it is +1, the data is accepted as true. When it is 􀀀1,
+the data is rejected and considered fake. The output r is converted to
+a probability value, in the interval [0;1], using the following
+conversion:
+
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut
