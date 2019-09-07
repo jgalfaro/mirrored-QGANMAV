@@ -410,6 +410,21 @@ src="https://latex.codecogs.com/gif.latex?$pR$"/>. When fake data
 submitted, the value p corresponds to the probability of fake true
 <img src="https://latex.codecogs.com/gif.latex?$pF$"/>.
 
+We aim to a discriminator that maximizes the probability <img
+src="https://latex.codecogs.com/gif.latex?$pR$"/> of accepting true
+data while minimizing the probability <img
+src="https://latex.codecogs.com/gif.latex?$pF$"/> of accepting fake
+data. An optimizer finds a rotation angle matrix <img
+src="https://latex.codecogs.com/gif.latex?\omega"/> such that the
+output of the circuit is approaching <img
+src="https://latex.codecogs.com/gif.latex?$+1$"/>, which corresponds
+to qubit <img
+src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>.
+Using a gradient descent technique, the optimizer iterates with
+genuine data sets and fake data sets. Gradient descent means that the
+optimizer tries to minimize the cost represented by the difference <img
+src="https://latex.codecogs.com/gif.latex?$pF%20-%20pR$"/>.
+
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut
