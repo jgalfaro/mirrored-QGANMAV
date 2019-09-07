@@ -329,25 +329,28 @@ src="https://latex.codecogs.com/gif.latex?$i$"/> is connected to qubit
 <img src="https://latex.codecogs.com/gif.latex?$i+1$"/> modulo <img
 src="https://latex.codecogs.com/gif.latex?$n$"/> using a CNOT gate.
 
-*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.*
+The discriminator circuit <img
+src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"/> uses
+<img src="https://latex.codecogs.com/gif.latex?$m$"/> layers of
+elementary circuits <img
+src="https://latex.codecogs.com/gif.latex?\mathcal{E}"/>. In Figure 4,
+<img src="https://latex.codecogs.com/gif.latex?$m$"/> is two. Layer 0
+accepts the input.
 
 ![Fig. 3. Three-qubit elementary circuit layer.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig3.png?raw=true)
 
-*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.*
-
 ![Fig. 4. Discriminator circuit made of two layered elementary circuits.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig4.png?raw=true)
+
+Layer <img src="https://latex.codecogs.com/gif.latex?$i$"/> quantum
+outputs are connected to layer <img
+src="https://latex.codecogs.com/gif.latex?$i+1$"/> quantum inputs. In
+this case, the circuit formal parameter <img
+src="https://latex.codecogs.com/gif.latex?\omega"/> is a <img
+src="https://latex.codecogs.com/gif.latex?$m$"/> by <img
+src="https://latex.codecogs.com/gif.latex?$n$"/> by three matrix of
+rotation angles. Layer <img
+src="https://latex.codecogs.com/gif.latex?$i$"/> is actualized with
+sub-matrix <img src="https://latex.codecogs.com/gif.latex?\omega_i"/>.
 
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
