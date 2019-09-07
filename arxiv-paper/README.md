@@ -406,9 +406,9 @@ src="https://latex.codecogs.com/gif.latex?$\vert%20\psi%20\rangle$"/>
 of the discriminator, the value <img
 src="https://latex.codecogs.com/gif.latex?$p$"/> in Eq. (2) expresses
 the probability of real true <img
-src="https://latex.codecogs.com/gif.latex?$p$R"/>. When fake data submitted, the value p
-corresponds to the probability of fake true <img
-src="https://latex.codecogs.com/gif.latex?$p$F"/>.
+src="https://latex.codecogs.com/gif.latex?$pR$"/>. When fake data
+submitted, the value p corresponds to the probability of fake true
+<img src="https://latex.codecogs.com/gif.latex?$pF$"/>.
 
 *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
