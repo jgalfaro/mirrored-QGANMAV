@@ -47,8 +47,8 @@ Today's cybersecurity solutions, from in-depth defense techniques
 aim to prevent system breaches from happening. However, several
 stories of attacks and disruption of CPS exist (e.g., from the
 [Stuxnet worm](http://j.mp/2jaM6uM) incident affecting a Iran's
-*atomic program* [7] to recent incidents in Saudi Arabia affecting
-[Houthi drones](http://bit.ly/2LMqR3H) [9]). CPS protection solutions
+*atomic program* [4] to recent incidents in Saudi Arabia affecting
+[Houthi drones](http://bit.ly/2LMqR3H) [6]). CPS protection solutions
 must manage and take control over adversarial actions. Protection must
 be built taking on the adversary mindset, predicting its intentions
 and adequately mitigating the effects of its actions.
@@ -61,9 +61,9 @@ the point of view of the adversary, it is the strength of the
 approach. A design is also proposed to discriminate between real and
 fake MAV navigation data. The designs combine classical optimization,
 qubit quantum computing and photonic quantum computing. We build upon
-the PennyLane quantum machine learning software platform [3]. In
+the PennyLane quantum machine learning software platform [2]. In
 particular, we reuse and adapt ideas from the variational classifier
-[21] and QGAN [22] examples.
+[15] and QGAN [16] examples.
 
 We evaluate our approach using the simulation capabilities of
 PennyLane. We measure the learning time and accuracy of the navigation
@@ -111,7 +111,7 @@ space surveillance and coastal water monitoring. The application
 domain of interest includes Micro Aerial Vehicles (MAVs) and related
 technologies such as UAV, UUV, formations of MAVs and collaborating
 MAVs. We focus on scenarios where an adversary targets the components
-of the CPS and perpetrates covert cyber-physical attacks [27], [26].
+of the CPS and perpetrates covert cyber-physical attacks [21], [20].
 The adversary is to operate a stealthy disruption of services. The
 purpose is disrupting the navigation data of the MAVs and deceive the
 defender. The role of the defender is to recognize the activities
@@ -121,7 +121,7 @@ adversary and correct the adversarial actions.
 ### A. Covert Attack and Feedback Truthfulness
 
 A covert attack is an aggression on the state of a CPS where the
-adversary attempts to be invisible [27]. It is assumed that the
+adversary attempts to be invisible [21]. It is assumed that the
 adversary knows or can learn the dynamics of the CPS. While the attack
 is being carried out, the perpetrator compensates the impact of the
 attack over the system by providing fake information to the system
@@ -131,10 +131,10 @@ detecting the attack, the execution of the CPS looks normal. Assume
 the scenario shown in Fig. 1. It depicts the disruption of the
 navigation data of a series of MAVs. The manipulation is conducted by
 a remote adversary via, e.g., GPS jamming and spoofing attacks [1],
-[12]. The goal of the adversary is to conduct navigation data
+[9]. The goal of the adversary is to conduct navigation data
 modifications (e.g., swapping the x;y coordinates of the navigation
 traces) and hide the disruption to the defender, with additional
-cyber-physical covert attacks [27], [26].
+cyber-physical covert attacks [21], [20].
 
 ![Fig. 1. MAV navigation data trace disruptions.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig1.png?raw=true)
 
@@ -166,9 +166,8 @@ graphs.
 ### B. Related Work
 
 Related work include the use of machine learning for
-cyber-physical protection, management of data quality (w.r.t.
-feedback-control systems), use of security games and 
-learning. More detailed information follow.
+cyber-physical protection and extended machine learning
+functions relying on quantum techniques. Details follow.
 
 #### 1) CPS Protection Using Machine Learning
 
@@ -192,74 +191,23 @@ Different alternative learning methods exist, based on different
 considerations on the type of model (e.g., rule-based, support-vector
 machines, deep learning models) and its properties (e.g., explainable
 models/decisions, efficiency). The perpetration of control-theoretic
-attacks [27], [26] may require a system identification phase performed
-by the adversary. Kernels methods [25], a kind of machine learning,
-can be used for system identification [19], [20].
+attacks [21], [20] may require a system identification phase performed
+by the adversary. Kernels methods [19], a kind of machine learning,
+can be used for system identification [13], [14].
 
-#### 2) Data Quality and Source Heterogeneity
-
-Learning methods designed to recognize malicious activities within
-large complex systems may be sensitive to the consequences of merging
-data from very heterogeneous sources. The learning process can be
-impacted by poor data quality, affecting the reliability of the
-decisions that are made. For example, data sources can be unmalicious
-but of little confidence. This issue is important for the protection
-of the learning phase. Adequate risk management calls for the
-implementation of data quality evaluation. Discriminators must be
-designed to cope with operational data relatively different and
-considerably more inaccurate than the training data. Taking into
-account data quality prevents bias and integrity attacks aiming to
-deceive a discrimination process [18]. Conversely, discrimination
-algorithms affected by slight modifications of training data may be
-too sensitive. They can be exploited more easily by adversaries. There
-are trade offs that can be taken into account by a security game
-modeling risk management. An interesting avenue is considering the
-possibility of a classifier not producing an answer when data quality
-cannot be guaranteed. This behavior corresponds to the rejection
-principle. A concept relatively well known by the classification
-community. However, to the best of our knowledge, its application to
-security needs more thought [6].
-
-#### 3) Security Games and Learning
-
-In [2], the authors propose a taxonomy to characterize the different
-types of attacks targeting AI-based security approaches, for example,
-machine learning classification and discrimination techniques taking
-security decisions. This taxonomy focuses on the techniques employed
-to identify malicious artifacts such as, messages, codes, program
-inputs and outputs. The work suggests to complement machine learning
-with gametheoretic security approaches, specially those in which the
-adversary may alter the training data. These observations have been
-widely repeated and extended in the information security literature
-[17].
-
-In this context, the principle of a security game amounts to
-quantifying the adversarial resources required to attack a system and
-the defensive capabilities of the latter. In this way, it is possible
-to determine optimal configurations to manage the risks of attacks as
-a quest for defender vs. adversary equilibrium. Along these lines,
-authors in [18] insists on the importance of using learning techniques
-with access to real time data. Outdated data increases the risk of
-making incorrect decisions by a defender [13]. Data must be considered
-obsolete by a learning process at a certain point in time [4]. The use
-of utility functions can be provided to formulate more realistic
-games. Such functions do not necessarily need to be under the
-classical computing realm. Extended machine learning functions relying
-on quantum techniques are expected [24].
-
-#### 4) The Quantum Advantage
+#### 2) The Quantum Advantage
 
 The time complexity of quantum search techniques are data size
 independent. Along the same line, quantum machine learning, i.e., the
 use of quantum computing for machine learning, has great potential
 because the time complexity of classification is independent of the
 number of data points. Schuld and Killoran investigated the use of
-kernel methods [25], that can be used for system identification, for
-quantum machine learning [24], [23]. Encoding of classical data into a
+kernel methods [19], that can be used for system identification, for
+quantum machine learning [18], [17]. Encoding of classical data into a
 quantum state is needed. A similar approach has been proposed by
-Havlicek et al. [11].
+Havlicek et al. [8].
 
-Schuld and Petruccione [24] discussed in details the application of
+Schuld and Petruccione [18] discussed in details the application of
 quantum machine learning classical data generation and quantum data
 processing. A translation procedure is required to map the classical
 data, i.e., the data points, to quantum data, enabling quantum data
@@ -276,7 +224,7 @@ quantum data. Quantum data generation requires quantum sensing.
 Using the Generative Adversarial Network (GAN) framework,
 we validate that a covert attack can be perpetrated using
 adversarial learning. A GAN consists of two main entities: a
-discriminator and a generator [10]. The discriminator is the
+discriminator and a generator [7]. The discriminator is the
 defender’s tool. The generator is the adversary tool. There are
 genuine (real) data and generated (fake) data. The generator
 aims at generating data to deceive the discriminator. The
@@ -290,7 +238,7 @@ and access to the verdict. Training is an iterative process.
 Training iterates until the production of fake data is accepted
 by the discriminator with high probability.
 
-In a QGAN [5], [15] the data can be quantum. Using a
+In a QGAN [3], [11] the data can be quantum. Using a
 [Parrot Mambo](https://www.parrot.com/global/support/products/mambo-fpv)
 MAV (cf. <a href="http://www-public.imtbs-tsp.eu/~garcia_a/web/prototypes/QGANMAV/">this link</a> for some screenshots),
 we generate genuine navigation data. The navigation is
@@ -303,10 +251,10 @@ to nothing else but the verdict of the discriminator.
 
 ### A. Discriminator Design
 
-We build upon the PennyLane [3] variational classifier [21] and QGAN
-[22] examples. The elementary circuit design <img
+We build upon the PennyLane [2] variational classifier [15] and QGAN
+[16] examples. The elementary circuit design <img
 src="https://latex.codecogs.com/gif.latex?\mathcal{E}(\omega)" /> of
-Farhi and Neven [8] is used, pictured in Fig. 3. Every elementary
+Farhi and Neven [5] is used, pictured in Fig. 3. Every elementary
 circuit processes qubits. In Fig. 3, <img
 src="https://latex.codecogs.com/gif.latex?$n$" /> is three. The
 circuit formal parameter <img
@@ -453,7 +401,7 @@ circuit, and (3) a photonic quantum circuit.
 #### 1) MAV model design
 
 A detailed model of the MAV is built and evolved. For example, such a
-model does exist for the MAV we are using for our experiments [16].
+model does exist for the MAV we are using for our experiments [12].
 The continuous domain navigation data generated by the MAV model is
 amplitude-encoded and submitted to the discriminator. According to the
 output of the discriminator, the MAV model is fine tuned until a high
@@ -491,7 +439,7 @@ next.
 
 #### 3) Photonic quantum circuit
 
-The generator combines photonic quantum computing [14] and
+The generator combines photonic quantum computing [10] and
 qubit-quantum computing. Photonic devices are trained to generate
 photon numbers corresponding to navigation data accepted by the
 discriminator. A photonic quantum circuit is shown in Fig. 6. It has
@@ -629,112 +577,85 @@ Geocaching-inspired resilient path planning for drone swarms. In IEEE
 MiSARN 2019, co-located with IEEE INFOCOM 2019 – IEEE Conference on
 Computer Communications, France, 2019.
 
-[2] Marco Barreno, Blaine Nelson, Anthony D Joseph, and J Doug Tygar.
-The security of machine learning. Machine Learning, 81(2):121–148,
-2010.
-
-[3] Ville Bergholm, Josh Izaac, Maria Schuld, Christian Gogolin,
+[2] Ville Bergholm, Josh Izaac, Maria Schuld, Christian Gogolin,
 Carsten Blank, Keri McKiernan, and Nathan Killoran. Pennylane:
 Automatic differentiation of hybrid quantum-classical computations,
 2018.
 
-[4] Samuel Rota Bulo, Battista Biggio, Ignazio Pillai, Marcello
-Pelillo, and Fabio Roli. Randomized prediction games for adversarial
-machine learning. IEEE transactions on neural networks and learning
-systems, 28(11):2466–2478, 2016.
-
-[5] Pierre-Luc Dallaire-Demers and Nathan Killoran. Quantum generative
+[3] Pierre-Luc Dallaire-Demers and Nathan Killoran. Quantum generative
 adversarial networks. Phys. Rev. A, 98:012324, Jul 2018.
 
-[6] Claudio De Stefano, Carlo Sansone, and Mario Vento. To reject or
-not to reject: that is the question-an answer in case of neural
-classifiers. IEEE Transactions on Systems, Man, and Cybernetics, Part
-C (Applications and Reviews), 30(1):84–94, 2000.
-
-[7] Nicolas Falliere, Liam Murchu, and Eric Chien. W32.Stuxnet
+[4] Nicolas Falliere, Liam Murchu, and Eric Chien. W32.Stuxnet
 dossier, symantec security response.
 [http://j.mp/2jaM6uM](http://j.mp/2jaM6uM), 2011.
 
-[8] Edward Farhi and Hartmut Neven. Classification with quantum neural
+[5] Edward Farhi and Hartmut Neven. Classification with quantum neural
 networks on near term processors, 2018.
 
-[9] Alex Gatopoulos. Houthi drone attacks in saudi show new level of
+[6] Alex Gatopoulos. Houthi drone attacks in saudi show new level of
 sophistication. [http://j.mp/2LMqR3H](http://j.mp/2LMqR3H), May 2019.
 
-[10] Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David
+[7] Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David
 Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio.
 Generative adversarial nets. In Z. Ghahramani, M. Welling, C. Cortes,
 N. D. Lawrence, and K. Q. Weinberger, editors, Advances in Neural
 Information Processing Systems 27, pages 2672–2680. Curran Associates,
 Inc., 2014.
 
-[11] Vojtech Havlıcek, Antonio D. C´orcoles, Kristan Temme, Aram W.
+[8] Vojtech Havlıcek, Antonio D. C´orcoles, Kristan Temme, Aram W.
 Harrow, Abhinav Kandala, Jerry M. Chow, and Jay M. Gambetta.
 Supervised learning with quantum-enhanced feature spaces. Nature,
 567(7747):209–212, 2019.
 
-[12] Ahmad Y Javaid, Farha Jahan, and Weiqing Sun. Analysis of global
+[9] Ahmad Y Javaid, Farha Jahan, and Weiqing Sun. Analysis of global
 positioning system-based attacks and a novel global positioning system
 spoofing detection/mitigation algorithm for unmanned aerial vehicle
 simulation. Simulation, 93(5):427–441, 2017.
 
-[13] Murat Kantarcıoglu, Bowei Xi, and Chris Clifton. Classifier
-evaluation and attribute selection against active adversaries. Data
-Mining and Knowledge Discovery, 22(1-2):291–335, 2011.
-
-[14] Nathan Killoran, Josh Izaac, Nicolas Quesada, Ville Bergholm,
+[10] Nathan Killoran, Josh Izaac, Nicolas Quesada, Ville Bergholm,
 Matthew Amy, and Christian Weedbrook. Strawberry Fields: A
 Software Platform for Photonic Quantum Computing. Quantum, 3:129,
 March 2019.
 
-[15] Seth Lloyd and Christian Weedbrook. Quantum generative adversarial
+[11] Seth Lloyd and Christian Weedbrook. Quantum generative adversarial
 learning. Phys. Rev. Lett., 121:040502, Jul 2018.
 
-[16] MathWorks. Quadcopter Project.
+[12] MathWorks. Quadcopter Project.
 [mathworks-quadcopter-project.html](https://www.mathworks.com/help/aeroblks/quadcopter-project.html).
 Accessed: 2019-06-20.
 
-[17] Nicolas Papernot, Patrick McDaniel, Arunesh Sinha, and Michael
-Wellman. Towards the science of security and privacy in machine
-learning. arXiv preprint [arXiv:1611.03814](https://arxiv.org/abs/1611.03814), 2016.
-
-[18] Nicolas Papernot, Patrick McDaniel, Xi Wu, Somesh Jha, and Ananthram
-Swami. Distillation as a defense to adversarial perturbations
-against deep neural networks. In 2016 IEEE Symposium on Security
-and Privacy (SP), pages 582–597. IEEE, 2016.
-
-[19] Gianluigi Pillonetto, Francesco Dinuzzo, Tianshi Chen, Giuseppe
+[13] Gianluigi Pillonetto, Francesco Dinuzzo, Tianshi Chen, Giuseppe
 De Nicolao, and Lennart Ljung. Kernel methods in system identification,
 machine learning and function estimation: A survey. Automatica,
 50(3):657–682, 2014.
 
-[20] Gianluigi Pillonetto and Giuseppe De Nicolao. A new kernel-based
+[14] Gianluigi Pillonetto and Giuseppe De Nicolao. A new kernel-based
 approach for linear system identification. Automatica, 46(1):81–93,
 2010.
 
-[21] Maria Schuld. Example - Variational classifier.
+[15] Maria Schuld. Example - Variational classifier.
 [https://github.com/XanaduAI/pennylane/blob/master/examples/](https://github.com/XanaduAI/pennylane/blob/master/examples/).
 Accessed: 2019-06-11.
 
-[22] Maria Schuld. Example - Quantum Generative Adversarial Network.
+[16] Maria Schuld. Example - Quantum Generative Adversarial Network.
 [https://github.com/XanaduAI/pennylane/blob/master/examples/](https://github.com/XanaduAI/pennylane/blob/master/examples/).
 Accessed: 2019-06-11.
 
-[23] Maria Schuld and Nathan Killoran. Quantum machine learning in
+[17] Maria Schuld and Nathan Killoran. Quantum machine learning in
 feature hilbert spaces. Phys. Rev. Lett., 122:040504, Feb 2019.
 
-[24] Maria Schuld and Francesco Petruccione. Supervised Learning with
+[18] Maria Schuld and Francesco Petruccione. Supervised Learning with
 Quantum Computers. Quantum science and technology. Springer,
 2018.
 
-[25] John Shawe-Taylor and Nello Cristianini. Kernel Methods for Pattern
+[19] John Shawe-Taylor and Nello Cristianini. Kernel Methods for Pattern
 Analysis. Kernel Methods for Pattern Analysis. Cambridge University
 Press, 2004.
 
-[26] Roy Smith. Covert Misappropriation of Networked Control Systems:
+[20] Roy Smith. Covert Misappropriation of Networked Control Systems:
 Presenting a Feedback Structure. IEEE Control Systems, 35(1):82–92,
 Feb 2015.
 
-[27] Andre Teixeira, Iman Shames, Henrik Sandberg, and Karl Henrik
+[21] Andre Teixeira, Iman Shames, Henrik Sandberg, and Karl Henrik
 Johansson. A secure control framework for resource-limited
 adversaries. Automatica, 51:135–148, 2015.
