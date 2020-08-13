@@ -1,4 +1,3 @@
-
 # Quantum Generative Adversarial Network for MAVs
 
 ## Authors
