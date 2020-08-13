@@ -548,11 +548,11 @@ approach for linear system identification. Automatica, 46(1):81–93,
 2010.
 
 [15] Maria Schuld. Example - Variational classifier.
-[https://github.com/XanaduAI/pennylane/blob/master/examples/](https://github.com/XanaduAI/pennylane/blob/master/examples/).
+[https://github.com/XanaduAI/pennylane/).
 Accessed: 2019-06-11.
 
 [16] Maria Schuld. Example - Quantum Generative Adversarial Network.
-[https://github.com/XanaduAI/pennylane/blob/master/examples/](https://github.com/XanaduAI/pennylane/blob/master/examples/).
+[https://github.com/XanaduAI/pennylane/).
 Accessed: 2019-06-11.
 
 [17] Maria Schuld and Nathan Killoran. Quantum machine learning in
