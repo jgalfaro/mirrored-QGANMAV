@@ -465,23 +465,22 @@ V. CONCLUSION
 ============
 
 We have investigated the use of QGAN designs to generate fake MAV
-navigation data. We assume the same approach to discriminate between
-genuine and fake MAV navigation data. The goal pursued by the
-adversary is to generate fake data that is accepted as true by a
-trained discriminator. On the other hand, the discriminator must
-accept with high probabilities true navigation data and reject fake
-one. The elaborated quantum circuits have been evaluated running on a
-a classical computing platform. As demonstrated in Fig. 8, the
+(Micro Aerial Vehicle) navigation data. We assume the same approach to
+discriminate between genuine and fake MAV navigation data. The goal
+pursued by the adversary is to generate fake data that is accepted as
+true by a trained discriminator. The discriminator must accept, with
+high probability, true navigation data. The discriminator must reject,
+with high probability, fake navigation data. The elaborated quantum
+circuits have been evaluated running on a classical computing
+platform. As demonstrated in the experimental results section, the
 exponentially growing time complexity in the number of qubits is an
 obstacle to scalability. We identified hurdles that must be overcome
 by the upcoming evolution of quantum machine learning. The main hurdle
 for the adversary is the generation of navigation data in classical
-continuous domains, i.e., real numbers, and the cost of the
+continuous domains, i.e., real numbers; and the cost of the
 transformation into the quantum format at every optimization
 iteration. Further research is needed to improve and find alternatives
-to the design depicted in Fig. 7.
-
-
+to the photonic quantum design used in this initial study.
 
 REFERENCES
 ============
