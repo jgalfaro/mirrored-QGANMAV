@@ -1,4 +1,5 @@
-# Quantum Generative Adversarial Network for Micro Aerial Vehicles (MAVs)
+# Quantum Generative Adversarial Network to Generate Fake MAV (Micro
+  Aerial Vehicle) Navigation Data
 
 ## Authors
 
