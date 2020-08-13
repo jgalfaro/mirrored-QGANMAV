@@ -1,4 +1,4 @@
-# Quantum Generative Adversarial Network for Micro Aerial Vehicles
+# Quantum Generative Adversarial Network for Micro Aerial Vehicles (MAVs)
 
 ## Authors
 
@@ -570,10 +570,10 @@ The performance of the photonic-circuit design described in Section
 III has been validated through simulation on a classical computing
 platform. Simulations were conducted using an Intel Xeon 32-core 2.70
 GHz server, with 256 GB of memory. We generated genuine navigation for
-a Parrot Mambo MAV (Micro Aerial Vehicle). In the scenario, the MAV
-takes off one meter, does two circles on the horizontal plane, then
-lands. The navigation data consists of x, y and z velocity triples.
-The whole scenario generates less than 64 real number values.
+a Parrot Mambo MAV. In the scenario, the MAV takes off one meter, does
+two circles on the horizontal plane, then lands. The navigation data
+consists of x, y and z velocity triples. The whole scenario generates
+less than 64 real number values.
 
 ![Fig. Learning time (ms) versus the number of qubits for the discriminator
 and generator.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig8.png?raw=true)
