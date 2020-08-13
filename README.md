@@ -46,13 +46,9 @@ dev = qml.device('default.qubit', wires=num_qubits)
 
 ## 2. Pre-processing of real data
 
-Read the raw real data, assuming $m$ input files. Each file may contain up to <img
-src="https://latex.codecogs.com/gif.latex?$2^{6}$"/> single scalar values. Each line
-comprises a timestamp (not used), a <img
-src="https://latex.codecogs.com/gif.latex?$x$"/>-velocity, a <img
-src="https://latex.codecogs.com/gif.latex?$y$"/>-velocity and a <img
-src="https://latex.codecogs.com/gif.latex?$z$"/>-velocity,
-
+Read the raw real data, assuming $m$ input files. Each file may
+contain up to $2^{6}$ single scalar values. Each line comprises a
+timestamp (not used), a $x$-velocity, $y$-velocity, and $z$-velocity.
 
 ```python
 m = 6 # number of real data files
@@ -142,17 +138,15 @@ for i in range(m):
       0.          0.          0.          0.        ]
 
 
-This example uses probability amplitude encoding, which requires normalized data. Let <img
-src="https://latex.codecogs.com/gif.latex?$x_0,\ldots,x_{n-1}$"/> be the real data values,
+This example uses probability amplitude encoding, which requires
+normalized data. Let $x_0,\ldots,x_{n-1}$ be the real data values,
 their normal form is
 
-<img
-src="https://latex.codecogs.com/gif.latex?$x_0/m,\ldots,x_{n-1}/m$"/>
+$x_0/m,\ldots,x_{n-1}/m$
 
 where
 
-<img
-src="https://latex.codecogs.com/gif.latex?$m%20=%20\sqrt{x_0^2%20+%20\ldots%20+x_{n-1}^2}$"/>.
+$m = \sqrt{x_0^2 + \ldots +x_{n-1}^2}$.
 
 
 ```python
@@ -268,7 +262,7 @@ print("Normalized data: ",real_values)
 ## 3. Discriminator
 ## 3.1 Elementary Circuit Layer
 
-The parameter "W" is a matrix containg the rotation angles applied to the circuit. It has "num_qubits" rows and three colums.
+The parameter $W$ is a matrix containg the rotation angles applied to the circuit. It has "num_qubits" rows and three colums.
 
 
 ```python
@@ -281,21 +275,18 @@ def layer(num_wires,W):
 
 ### 3.2 Quantum node for real data
 
-The first parameter "real_values" is an array that contains the <img
-src="https://latex.codecogs.com/gif.latex?$n$"/> input real data points. The normalized input data is encoded in the amplitudes of "num_qubits". The second parameter "weights" is a matrix containing the rotation angles applied to the rotation gates. The matrix has one row per layer and "num_qubits" columns. The wire 0 is the output of the circuit. The output ranges in the continuous interval +1 down to -1, respectively corresponding to qubits <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
-<img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
-Intermediate values represent superpositions
-of qubits <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and <img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>. The optimizer
-aims at finding angles such that the output of the circuit is approaching
-<img
-src="https://latex.codecogs.com/gif.latex?$+1$"/>, which corresponds to
-qubit <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>.
 
+The first parameter, "real_values", is an array that contains the $n$
+input real data points. The normalized input data is encoded in the
+amplitudes of "num_qubits". The second parameter "weights" is a matrix
+containing the rotation angles applied to the rotation gates. The
+matrix has one row per layer and "num_qubits" columns. The wire 0 is
+the output of the circuit. The output ranges in the continuous
+interval +1 down to -1, respectively corresponding to qubits $|0>$ and
+$|1>$. Intermediate values represent superpositions of qubits $|0>$
+and $|1>$. The optimizer aims at finding rotation angles such that the
+output of the circuit is approaching $+1$, which corresponds to qubit
+$|0>$.
 
 ```python
 @qml.qnode(dev)
@@ -345,31 +336,18 @@ print("Discriminator expectation (test mode): ", r)
 
 #### Probability of correctly classifying real data
 
-The output of the discriminator <img
-src="https://latex.codecogs.com/gif.latex?$r$"/> is a value in the continuous
-interval <img
-src="https://latex.codecogs.com/gif.latex?$+1$"/> down to <img
-src="https://latex.codecogs.com/gif.latex?$-1$"/>, i.e.,
-<img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
-<img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
-The output is interpreted as follows. When the output is <img
-src="https://latex.codecogs.com/gif.latex?$+1$"/>, the data is accepted as True.
-When it is <img
-src="https://latex.codecogs.com/gif.latex?$-1$"/>, the data is rejected
-and considered fake. The output <img
-src="https://latex.codecogs.com/gif.latex?$r$"/> is converted to a
-probabiliy value, in the interval <img
-src="https://latex.codecogs.com/gif.latex?$[0,1]$"/>, using the following
-conversion:
+The output of the discriminator $r$ is a value in the continuous
+interval $+1$ down to $-1$, coreesponding to $|0>$ and $|1>$. The
+output is interpreted as follows. When the output is $+1$, the data is
+accepted as rrue. When it is -1, the data is rejected and considered
+fake. The output $r$ is converted to a probability value, in the
+interval $[0,1]$, using the following conversion:
 
-<img
-src="https://latex.codecogs.com/gif.latex?p%20=%20\frac{r+1}{2}"/>
+$p_R=\frac{r+1}{2}.$
 
-Parameter "values" is an arry of <img
-src="https://latex.codecogs.com/gif.latex?$n$"/> normalized data points.
-Parameter "disc_weights" is a matrix of angles used in the discriinator circuit.
+This is called the probability of real true. Parameter "values" is an
+arry of $n$ normalized data points. Parameter "disc_weights" is a
+matrix of angles used in the discriinator circuit.
 
 
 ```python
@@ -385,15 +363,11 @@ def prob_real_true(real_values,disc_weights):
 
 #### Discriminator cost function
 
-The discriminator aims to maximize the probability <img
-src="https://latex.codecogs.com/gif.latex?$%20p_R$"/> of
-accepting true data while minimizing the probability <img
-src="https://latex.codecogs.com/gif.latex?$%20p_F$"/> of
-accepting fake data. During the optimizaton of the discriminator,
-the optimizer, being
-<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a>, tries
-to minimize the cost represented by the term <img
-src="https://latex.codecogs.com/gif.latex?$--%20p_R$"/>.
+The discriminator aims to maximize the probability $p_R$ of accepting
+true data while minimizing the probability $p_F$ of accepting fake
+data. During the optimization of the discriminator, the optimizer,
+being gradient descent, tries to minimize the cost represented by the
+term $p_F - p_R$.
 
 
 ```python
@@ -484,25 +458,16 @@ dev_gaussian = qml.device('default.gaussian', wires=2**num_qubits)
 
 ### 4.1 Construction of Photonic Quantum Node
 
-The input on each wire is the vaucuum state <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>, i.e.,
-no photon on the wire. The first gate is a displacement gate, with parameter
-<img
-src="https://latex.codecogs.com/gif.latex?$\alpha$"/>, that phase shift the qumod.
-The parameter <img
-src="https://latex.codecogs.com/gif.latex?$\alpha$"/> is a psecified in the polar form,
-as a magnitude (<img
-src="https://latex.codecogs.com/gif.latex?mag$_\alpha$"/>) and an angle
-(<img
-src="https://latex.codecogs.com/gif.latex?phase$_\alpha$"/>). This is
-an active transformation that modifies the photonoc energy of the system.
+The input on each wire is the vacuum state $|0>$, i.e., no
+photon on the wire. The first gate is a displacement gate, with
+parameter $\alpha$, that phase shift the qumod. The parameter $\alpha$
+is a specified in the polar form, as a magnitude (mag_alpha) and as an
+angle (phase_alpha). This is an active transformation that modifies
+the photonic energy of the system.
 
-The second gate rotate the qumode by an angle <img
-src="https://latex.codecogs.com/gif.latex?$\phi$"/>. The measured mean
-number of photon is <img
-src="https://latex.codecogs.com/gif.latex?%3C$\hat{a}{\dagger}%20\hat{a}$%3E"/>,
-i.e., the average number of photons in the final state.
-
+The second gate rotate the qumode by an angle $\phi$. The measured
+mean number of photons is $< \hat{a}{\dagger} \hat{a}>$, i.e., the
+average number of photons in the final state.
 
 ```python
 #@qml.qnode(dev_gaussian)
@@ -546,11 +511,14 @@ mean_photon_gaussian(init_params)
 
 ### 4.2 Generator Cost Function
 
-Using a Gaussian device, displacement and rotation angle pairs (in "params") are applied succesively to the photonic quantum node. The expected numbers of output photons are measured for each case. Measurement results are stored into variable "fake_values". There is one fake value per probability amplitude, i.e., <img
-src="https://latex.codecogs.com/gif.latex?$2^{6}$"/>.
+Using a Gaussian device, displacement and rotation angle pairs (in
+"params") are applied succesively to the photonic quantum node. The
+expected numbers of output photons are measured for each case.
+Measurement results are stored into variable "fake_values". There is
+one fake value per probability amplitude, i.e., $2^{6}$.
 
-The fake values are normalized and applied to the discriminator circuit, using the rotation angles determined during its optimization.
-
+The fake values are normalized and applied to the discriminator
+circuit, using the rotation angles determined during its optimization.
 
 ```python
 def gen_cost(params,disc_weights):
