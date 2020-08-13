@@ -601,11 +601,11 @@ We have investigated the use of QGAN designs to generate fake MAV
 (Micro Aerial Vehicle) navigation data. We assume the same approach to
 discriminate between genuine and fake MAV navigation data. The goal
 pursued by the adversary is to generate fake data that is accepted as
-true by a trained discriminator. On the other hand, the discriminator
-must accept with high probabilities true navigation data and reject
-fake one. The elaborated quantum circuits have been evaluated running
-on a a classical computing platform. As demonstrated in the
-experimental results section, the exponentially growing time complexity in the
+true by a trained discriminator. The discriminator must accept with
+high probabilities true navigation data and reject fake one. The
+elaborated quantum circuits have been evaluated running on a a
+classical computing platform. As demonstrated in the experimental
+results section, the exponentially growing time complexity in the
 number of qubits is an obstacle to scalability. We identified hurdles
 that must be overcome by the upcoming evolution of quantum machine
 learning. The main hurdle for the adversary is the generation of
