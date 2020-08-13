@@ -35,9 +35,9 @@ from pennylane.optimize import GradientDescentOptimizer
 import math
 ```
 
-A six-qubit device is create. With probability amplitude encoding, up to <img
-src="https://latex.codecogs.com/gif.latex?$2^{6}$"/> single scalar values can be 
-reprented in probability amplitudes in the input circuit quantum state. 
+A six-qubit device is create. With probability amplitude encoding, up
+to $2^6$ single scalar values can be reprented in probability
+amplitudes in the input circuit quantum state.
 
 
 ```python
@@ -48,7 +48,7 @@ dev = qml.device('default.qubit', wires=num_qubits)
 ## 2. Pre-processing of real data
 
 Read the raw real data, assuming $m$ input files. Each file may contain up to <img
-src="https://latex.codecogs.com/gif.latex?$2^{6}$"/> single scalar values. Each line 
+src="https://latex.codecogs.com/gif.latex?$2^{6}$"/> single scalar values. Each line
 comprises a timestamp (not used), a <img
 src="https://latex.codecogs.com/gif.latex?$x$"/>-velocity, a <img
 src="https://latex.codecogs.com/gif.latex?$y$"/>-velocity and a <img
@@ -144,8 +144,8 @@ for i in range(m):
 
 
 This example uses probability amplitude encoding, which requires normalized data. Let <img
-src="https://latex.codecogs.com/gif.latex?$x_0,\ldots,x_{n-1}$"/> be the real data values, 
-their normal form is 
+src="https://latex.codecogs.com/gif.latex?$x_0,\ldots,x_{n-1}$"/> be the real data values,
+their normal form is
 
 <img
 src="https://latex.codecogs.com/gif.latex?$x_0/m,\ldots,x_{n-1}/m$"/>
@@ -160,9 +160,9 @@ src="https://latex.codecogs.com/gif.latex?$m%20=%20\sqrt{x_0^2%20+%20\ldots%20+x
 # Normalization function
 def normalize(values):
     m = np.sqrt(np.sum(values ** 2))
-    return values / m 
+    return values / m
 for i in range(len(real_values)):
-   real_values[i,:] = normalize(real_values[i,:]) 
+   real_values[i,:] = normalize(real_values[i,:])
    # check consistency of probability amplitudes
    assert np.abs(1-np.sum(real_values[i,:] ** 2))<=0.0000001
 print("Normalized data: ",real_values)
@@ -284,16 +284,16 @@ def layer(num_wires,W):
 
 The first parameter "real_values" is an array that contains the <img
 src="https://latex.codecogs.com/gif.latex?$n$"/> input real data points. The normalized input data is encoded in the amplitudes of "num_qubits". The second parameter "weights" is a matrix containing the rotation angles applied to the rotation gates. The matrix has one row per layer and "num_qubits" columns. The wire 0 is the output of the circuit. The output ranges in the continuous interval +1 down to -1, respectively corresponding to qubits <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and 
+src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
 <img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>. 
-Intermediate values represent superpositions 
+src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
+Intermediate values represent superpositions
 of qubits <img
 src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and <img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>. The optimizer 
-aims at finding angles such that the output of the circuit is approaching 
+src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>. The optimizer
+aims at finding angles such that the output of the circuit is approaching
 <img
-src="https://latex.codecogs.com/gif.latex?$+1$"/>, which corresponds to 
+src="https://latex.codecogs.com/gif.latex?$+1$"/>, which corresponds to
 qubit <img
 src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>.
 
@@ -306,7 +306,7 @@ def real_disc_circuit(real_values,weights):
     # assign weights to layers
     for W in weights:
         layer(num_qubits,W)
-    # measure 
+    # measure
     return qml.expval.PauliZ(0)
 ```
 
@@ -347,29 +347,29 @@ print("Discriminator expectation (test mode): ", r)
 #### Probability of correctly classifying real data
 
 The output of the discriminator <img
-src="https://latex.codecogs.com/gif.latex?$r$"/> is a value in the continuous 
+src="https://latex.codecogs.com/gif.latex?$r$"/> is a value in the continuous
 interval <img
 src="https://latex.codecogs.com/gif.latex?$+1$"/> down to <img
-src="https://latex.codecogs.com/gif.latex?$-1$"/>, i.e., 
+src="https://latex.codecogs.com/gif.latex?$-1$"/>, i.e.,
 <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and 
+src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
 <img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>. 
+src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
 The output is interpreted as follows. When the output is <img
-src="https://latex.codecogs.com/gif.latex?$+1$"/>, the data is accepted as True. 
+src="https://latex.codecogs.com/gif.latex?$+1$"/>, the data is accepted as True.
 When it is <img
-src="https://latex.codecogs.com/gif.latex?$-1$"/>, the data is rejected 
+src="https://latex.codecogs.com/gif.latex?$-1$"/>, the data is rejected
 and considered fake. The output <img
-src="https://latex.codecogs.com/gif.latex?$r$"/> is converted to a 
+src="https://latex.codecogs.com/gif.latex?$r$"/> is converted to a
 probabiliy value, in the interval <img
-src="https://latex.codecogs.com/gif.latex?$[0,1]$"/>, using the following 
+src="https://latex.codecogs.com/gif.latex?$[0,1]$"/>, using the following
 conversion:
 
 <img
 src="https://latex.codecogs.com/gif.latex?p%20=%20\frac{r+1}{2}"/>
 
 Parameter "values" is an arry of <img
-src="https://latex.codecogs.com/gif.latex?$n$"/> normalized data points. 
+src="https://latex.codecogs.com/gif.latex?$n$"/> normalized data points.
 Parameter "disc_weights" is a matrix of angles used in the discriinator circuit.
 
 
@@ -387,18 +387,18 @@ def prob_real_true(real_values,disc_weights):
 #### Discriminator cost function
 
 The discriminator aims to maximize the probability <img
-src="https://latex.codecogs.com/gif.latex?$%20p_R$"/> of 
+src="https://latex.codecogs.com/gif.latex?$%20p_R$"/> of
 accepting true data while minimizing the probability <img
-src="https://latex.codecogs.com/gif.latex?$%20p_F$"/> of 
-accepting fake data. During the optimizaton of the discriminator, 
-the optimizer, being 
-<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a>, tries 
+src="https://latex.codecogs.com/gif.latex?$%20p_F$"/> of
+accepting fake data. During the optimizaton of the discriminator,
+the optimizer, being
+<a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a>, tries
 to minimize the cost represented by the term <img
 src="https://latex.codecogs.com/gif.latex?$--%20p_R$"/>.
 
 
 ```python
-def disc_cost(real_values,disc_weights): 
+def disc_cost(real_values,disc_weights):
     cost = - prob_real_true(real_values,disc_weights)
     return cost
 ```
@@ -443,7 +443,7 @@ The outcome of the optimization of the discriminator is a matrix of rotation ang
 opt = GradientDescentOptimizer(0.1)
 for i in range(50):
     j = 0
-    disc_weights = opt.step(lambda v: disc_cost(real_values[j,:],v),disc_weights) 
+    disc_weights = opt.step(lambda v: disc_cost(real_values[j,:],v),disc_weights)
     cost = disc_cost(real_values[j,:],disc_weights)
     if i % 5 == 0:
         print("Step {}: cost = {}".format(i+1, cost))
@@ -474,7 +474,7 @@ The generator produces fake data with entropy, i.e., with uncertainty.
 
 The fake data can be generated by a qubit-quantum circuit, but it is not usable for perpetrating attacks in the classical data world. Qubit-uantum circuits cannot generate continuous-domain classical data.
 
-The generator is built using photonic quantum computing and a circuit containing only Gaussian operations that can generate data in a continuous domain. 
+The generator is built using photonic quantum computing and a circuit containing only Gaussian operations that can generate data in a continuous domain.
 
 A photonic quantum computing Gaussian device is created:
 
@@ -486,22 +486,22 @@ dev_gaussian = qml.device('default.gaussian', wires=2**num_qubits)
 ### 4.1 Construction of Photonic Quantum Node
 
 The input on each wire is the vaucuum state <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>, i.e., 
-no photon on the wire. The first gate is a displacement gate, with parameter 
+src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>, i.e.,
+no photon on the wire. The first gate is a displacement gate, with parameter
 <img
-src="https://latex.codecogs.com/gif.latex?$\alpha$"/>, that phase shift the qumod. 
+src="https://latex.codecogs.com/gif.latex?$\alpha$"/>, that phase shift the qumod.
 The parameter <img
-src="https://latex.codecogs.com/gif.latex?$\alpha$"/> is a psecified in the polar form, 
+src="https://latex.codecogs.com/gif.latex?$\alpha$"/> is a psecified in the polar form,
 as a magnitude (<img
-src="https://latex.codecogs.com/gif.latex?mag$_\alpha$"/>) and an angle 
+src="https://latex.codecogs.com/gif.latex?mag$_\alpha$"/>) and an angle
 (<img
-src="https://latex.codecogs.com/gif.latex?phase$_\alpha$"/>). This is 
+src="https://latex.codecogs.com/gif.latex?phase$_\alpha$"/>). This is
 an active transformation that modifies the photonoc energy of the system.
 
 The second gate rotate the qumode by an angle <img
-src="https://latex.codecogs.com/gif.latex?$\phi$"/>. The measured mean 
+src="https://latex.codecogs.com/gif.latex?$\phi$"/>. The measured mean
 number of photon is <img
-src="https://latex.codecogs.com/gif.latex?%3C$\hat{a}{\dagger}%20\hat{a}$%3E"/>, 
+src="https://latex.codecogs.com/gif.latex?%3C$\hat{a}{\dagger}%20\hat{a}$%3E"/>,
 i.e., the average number of photons in the final state.
 
 
@@ -594,7 +594,7 @@ steps = 20
 print("...")
 for i in range(steps):
     # update the circuit parameters
-    gen_weights = opt.step(lambda v: gen_cost(v,disc_weights),gen_weights) 
+    gen_weights = opt.step(lambda v: gen_cost(v,disc_weights),gen_weights)
     cost = gen_cost(gen_weights,disc_weights)
     if i % 5 == 0:
         print("Step {}: cost = {}".format(i+1, cost))
