@@ -3,7 +3,7 @@ Faking and Discriminating the Navigation Data of a Micro Aerial Vehicle Using Qu
 
 ### Michel Barbeau, Carleton University, School of Computer Science, Canada.
 
-### Joaquin Garcia-Alfaro, Institut Polytechnique de Paris, CNRS UMR 5157 SAMOVAR, Télécom SudParis, France.
+### Joaquin Garcia-Alfaro, Institut Polytechnique de Paris, CNRS UMR 5157 SAMOVAR, Telecom SudParis, France.
 
 <a href="https://arxiv.org/abs/1907.03038">https://arxiv.org/abs/1907.03038</a>
 
@@ -252,60 +252,34 @@ to nothing else but the verdict of the discriminator.
 ### A. Discriminator Design
 
 We build upon the PennyLane [2] variational classifier [15] and QGAN
-[16] examples. The elementary circuit design <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{E}(\omega)" /> of
+[16] examples. The elementary circuit design $\mathcal{E}(\omega)$ of
 Farhi and Neven [5] is used, pictured in Fig. 3. Every elementary
-circuit processes qubits. In Fig. 3, <img
-src="https://latex.codecogs.com/gif.latex?$n$" /> is three. The
-circuit formal parameter <img
-src="https://latex.codecogs.com/gif.latex?$w$"/> is a <img
-src="https://latex.codecogs.com/gif.latex?$n$"/> by three matrix of
-rotation angles. For <img
-src="https://latex.codecogs.com/gif.latex?$i=0,1,\ldots,n-1$"/>, the
-gate <img
-src="https://latex.codecogs.com/gif.latex?$Rot(\omega_{i,0},\omega_{i,1},\omega_{i,2})$"/>
-applies the <img src="https://latex.codecogs.com/gif.latex?$x$"/>,
-<img src="https://latex.codecogs.com/gif.latex?$y$"/> and <img
-src="https://latex.codecogs.com/gif.latex?$z$"/>-axis rotations <img
-src="https://latex.codecogs.com/gif.latex?$\omega_{i,0}$"/>,
-<img src="https://latex.codecogs.com/gif.latex?$\omega_{i,1}$"/>,
-<img src="https://latex.codecogs.com/gif.latex?$\omega_{i,2}$"/> to qubit
-<img src="https://latex.codecogs.com/gif.latex?$\left\vert{\psi_i}\right\rangle$"/>. The
-three rotations can take a qubit from any state to any state. For
-entanglement purposes, qubit <img
-src="https://latex.codecogs.com/gif.latex?$i$"/> is connected to qubit
-<img src="https://latex.codecogs.com/gif.latex?$i+1$"/> modulo <img
-src="https://latex.codecogs.com/gif.latex?$n$"/> using a CNOT gate.
+circuit processes qubits. In Fig. 3, $n$ is three. The circuit formal
+parameter $w$ is a $n$ by three matrix of rotation angles. For
+$i=0,1,\ldots,n-1$, the gate
+$Rot(\omega_{i,0},\omega_{i,1},\omega_{i,2})$ applies the $x$, $y$,
+and $z$-axis rotations $\omega_{i,0}$, $\omega_{i,1}$, $\omega_{i,2}$
+to qubit $\left\vert{\psi_i}\right\rangle$. The three rotations can
+take a qubit from any state to any state. For entanglement purposes,
+qubit $i$ is connected to qubit $i+1$ modulo $n$ using a CNOT gate.
 
 ![Fig. 3. Three-qubit elementary circuit layer.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig3.png?raw=true)
 
 ![Fig. 4. Discriminator circuit made of two layered elementary circuits.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig4.png?raw=true)
 
-The discriminator circuit <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"/> uses
-<img src="https://latex.codecogs.com/gif.latex?$m$"/> layers of
-elementary circuits <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{E}"/>.
+The discriminator circuit $\mathcal{D}(\omega)$ uses $m$ layers of
+elementary circuits $\mathcal{E}$.
 
-In Fig. 4, <img src="https://latex.codecogs.com/gif.latex?$m$"/> is
-two. Layer 0 accepts the input. Layer <img
-src="https://latex.codecogs.com/gif.latex?$i$"/> quantum outputs are
-connected to layer <img
-src="https://latex.codecogs.com/gif.latex?$i+1$"/> quantum inputs. In
-this case, the circuit formal parameter <img
-src="https://latex.codecogs.com/gif.latex?\omega"/> is a <img
-src="https://latex.codecogs.com/gif.latex?$m$"/> by <img
-src="https://latex.codecogs.com/gif.latex?$n$"/> by three matrix of
-rotation angles. Layer <img
-src="https://latex.codecogs.com/gif.latex?$i$"/> is actualized with
-sub-matrix <img src="https://latex.codecogs.com/gif.latex?\omega_i"/>.
+In Fig. 4, $m$ is two. Layer zero accepts the input. Layer $i$ quantum
+outputs are connected to layer $i+1$ quantum inputs. In this case, the
+circuit formal parameter $\omega$ is a $m$ by $n$ by three matrix of
+rotation angles. Layer $i$ is actualized with sub-matrix $\omega_i$.
 
 
 We use probability amplitude encoding, because we can represent in a
 given number of qubits an exponential number of data points.
-Probability amplitude encoding requires normalized data. Let <img
-src="https://latex.codecogs.com/gif.latex?$x_0,%20\ldots,%20x_{n-1}$"/>
-be the data values, their normal form is:
+Probability amplitude encoding requires normalized data. Let $x_0,
+\ldots, x_{n-1}$ be the data values, their normal form is:
 
 ![Eq 0.1](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq0.1.png?raw=true)
 
@@ -313,79 +287,46 @@ where:
 
 ![Eq 0.2](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq0.2.png?raw=true)
 
-With probability amplitude encoding, up to <img
-src="https://latex.codecogs.com/gif.latex?2^n"/> single scalar values
+With probability amplitude encoding, up to $2^n$ single scalar values
 can be represented in probability amplitudes in the input circuit
 quantum state. The input quantum state with probability amplitude
 encoded data has the following format:
 
 ![Eq (1)](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq1.png?raw=true)
 
-In Figure 4, layer <img
-src="https://latex.codecogs.com/gif.latex?$m-1$"/> produces the output
-expectation <img src="https://latex.codecogs.com/gif.latex?$r$"/> on
-line 0. The output <img
-src="https://latex.codecogs.com/gif.latex?$r$"/> ranges in the
-continuous interval <img
-src="https://latex.codecogs.com/gif.latex?$+1$"/> down to <img
-src="https://latex.codecogs.com/gif.latex?$-1$"/>, respectively
-corresponding to qubits <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
-<img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
-Intermediate values represent superpositions of qubits <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/> and
-<img
-src="https://latex.codecogs.com/gif.latex?$\vert%201%20\rangle$"/>.
-The output is interpreted as follows. When it is <img
-src="https://latex.codecogs.com/gif.latex?$+1$"/>, the data is
-accepted as true. When it is <img
-src="https://latex.codecogs.com/gif.latex?$-1$"/>, the data is
-rejected and considered fake. The output <img
-src="https://latex.codecogs.com/gif.latex?$r$"/> is converted to a
-probability value, in the interval <img
-src="https://latex.codecogs.com/gif.latex?$[0;1]$"/>, using the
-following conversion:
+In Fig. 4, layer $m-1$ produces the output expectation $r$ on line
+0. The output $r$ ranges in the continuous interval $+1$ down to $-1$,
+respectively corresponding to qubits $|0>$ and $|1>$ (i.e., $ket 0$
+and $ket 1$. Intermediate values represent superpositions of qubits
+$|0>$ and $|1>$. The output is interpreted as follows. When it is
+$+1$, the data is accepted as true. When it is $-1$, the data is
+rejected and considered fake. The output $r$, is converted to a
+probability value, in the interval $[0,1]$, using the following
+conversion:
 
 ![Eq (2)](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/eq2.png?raw=true)
 
-When genuine data is submitted on the inputs <img
-src="https://latex.codecogs.com/gif.latex?$\vert%20\psi%20\rangle$"/>
-of the discriminator, the value <img
-src="https://latex.codecogs.com/gif.latex?$p$"/> in Eq. (2) expresses
-the probability of real true <img
-src="https://latex.codecogs.com/gif.latex?$pR$"/>. When fake data
-submitted, the value p corresponds to the probability of fake true
-<img src="https://latex.codecogs.com/gif.latex?$pF$"/>.
+When genuine data is submitted on the inputs $|\psi>$ of the
+discriminator, the value $p$ in Eq. (2) expresses the probability of
+real true $pR$. When fake data submitted, the value $p$ corresponds to
+the probability of fake true $pF$.
 
-We aim to a discriminator that maximizes the probability <img
-src="https://latex.codecogs.com/gif.latex?$pR$"/> of accepting true
-data while minimizing the probability <img
-src="https://latex.codecogs.com/gif.latex?$pF$"/> of accepting fake
-data. An optimizer finds a rotation angle matrix <img
-src="https://latex.codecogs.com/gif.latex?\omega"/> such that the
-output of the circuit is approaching <img
-src="https://latex.codecogs.com/gif.latex?$+1$"/>, which corresponds
-to qubit <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>.
-Using a gradient descent technique, the optimizer iterates with
-genuine data sets and fake data sets. Gradient descent means that the
-optimizer tries to minimize the cost represented by the difference <img
-src="https://latex.codecogs.com/gif.latex?$pF%20-%20pR$"/>.
+We aim to a discriminator that maximizes the probability $pR$> of
+accepting true data while minimizing the probability $pF$ of accepting
+fake data. An optimizer finds a rotation angle matrix $\omega$ such
+that the output of the circuit is approaching $+1$, which corresponds
+to qubit $|0>$. Using a gradient descent technique, the optimizer
+iterates with genuine data sets and fake data sets. Gradient descent
+means that the optimizer tries to minimize the cost represented by the
+difference $pF - pR$.
 
 *Definition 1 (Discriminator optimization problem):* Given the quantum
-input state <img src="https://latex.codecogs.com/gif.latex?\phi"/>,
-probability amplitude encoding fake navigation data, and quantum input
-state <img src="https://latex.codecogs.com/gif.latex?\psi"/>,
-probability amplitude encoding genuine navigation data, training the
-discriminator <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"/> is
-the optimization problem that consists of finding the matrix <img
-src="https://latex.codecogs.com/gif.latex?$\omega(m%20\times%20n%20\times%203)$"/>
-that gives the smallest difference <img
-src="https://latex.codecogs.com/gif.latex?$pF%20-%20pR$"/>.
-
-
+input state $\phi$, probability amplitude encoding fake navigation
+data, and quantum input state $\psi$, probability amplitude encoding
+genuine navigation data, training the discriminator
+$\mathcal{D}(\omega)$ is the optimization problem that consists of
+finding the matrix $\omega(m \times n \times 3)$ that gives the
+smallest difference $pF - pR$.
 
 ### B. Generator Design
 
@@ -420,87 +361,63 @@ designs for such a purpose follow.
 The fake data can be generated with a qubit-quantum circuit, with an
 architecture as the one pictured in Fig. 5. The generator circuit is
 similar to the discriminator circuit, pictured in Fig. 4. For the
-generator circuit, the inputs are all at <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>.
-The optimization is done on the rotation angles, using the verdict of
-the discriminator <img
-src="https://latex.codecogs.com/gif.latex?$r$"/>. The learning process
-is automatic. The generator outputs the navigation data with entropy.
-The outputs of the generator are directly connected to the inputs of
-the discriminator. The generated navigation data is encoded in the
-probability amplitudes of the quantum state produced by the generator.
-Although it works, the navigation data must be transformed to a
-quantum format. Hence, the data is unusable for practically
-perpetrating the attack. Indeed, qubit-circuit outputs, obtained
-through measurements, collapse to zeros and ones. To be usable in an
-attack scenario, the data needs to be transformed from classical
-continuous domains. An alternative design for such a purpose follows
-next.
+generator circuit, the inputs are all at $|0>$. The optimization is
+done on the rotation angles, using the verdict of the discriminator
+$r$. The learning process is automatic. The generator outputs the
+navigation data with entropy. The outputs of the generator are
+directly connected to the inputs of the discriminator. The generated
+navigation data is encoded in the probability amplitudes of the
+quantum state produced by the generator. Although it works, the
+navigation data must be transformed to a quantum format. Hence, the
+data is unusable for practically perpetrating the attack. Indeed,
+qubit-circuit outputs, obtained through measurements, collapse to
+zeros and ones. To be usable in an attack scenario, the data needs to
+be transformed from classical continuous domains. An alternative
+design for such a purpose follows next.
 
 #### 3) Photonic quantum circuit
 
 The generator combines photonic quantum computing [10] and
 qubit-quantum computing. Photonic devices are trained to generate
 photon numbers corresponding to navigation data accepted by the
-discriminator. A photonic quantum circuit is shown in Fig. 6. It has
-a single line, called a *qumode*. The input of the circuit, <img
-src="https://latex.codecogs.com/gif.latex?$\vert%200%20\rangle$"/>, is
+discriminator. A photonic quantum circuit is shown in Fig. 6. It has a
+single line, called a *qumode*. The input of the circuit, $|0>$, is
 the zero energy level. There are two Gaussian devices. There is a
-displacement gate <img
-src="https://latex.codecogs.com/gif.latex?$D$"/>, with parameter <img
-src="https://latex.codecogs.com/gif.latex?\alpha"/>, and a rotation
-gate <img src="https://latex.codecogs.com/gif.latex?$R$"/>, with
-parameter <img src="https://latex.codecogs.com/gif.latex?\phi"/>. They
-change the circuit energy level and expected numbers of output
-photons. The measurement gate determines the average number of photons
-at the output of the circuit.
+displacement gate $D$, with parameter $\alpha$, and a rotation gate
+$R$, with parameter $\phi$. They change the circuit energy level and
+expected numbers of output photons. The measurement gate determines
+the average number of photons at the output of the circuit.
 
 ![Fig. 6. Photonic-circuit model.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig6.png?raw=true)
 
 We use photonic devices to generate fake navigation data. The output
 is amplitude-encoded and submitted to the discriminator. The
-photonic-quantum circuit is optimized on the parameters <img
-src="https://latex.codecogs.com/gif.latex?\alpha"/> and <img
-src="https://latex.codecogs.com/gif.latex?\phi"/> such that the
-probability of acceptance of the fake data by the discriminator is
-high.
+photonic-quantum circuit is optimized on the parameters $\alpha$ and
+$\phi$ such that the probability of acceptance of the fake data by the
+discriminator is high.
 
 The architecture pictured in Fig. 7 shows a generator feeding a
-discriminator circuit through a probability amplitude encoder <img
-src="https://latex.codecogs.com/gif.latex?\cal{A}"/>, including
-normalization. The MAV navigation data set is amplitude encoded
-according to Eq. (1). Since n qubits can amplitude-encode <img
-src="https://latex.codecogs.com/gif.latex?$2^n$"/> datum, a n-qubit
-discriminator is fed by a generator with <img
-src="https://latex.codecogs.com/gif.latex?$2^n$"/> qumodes. In Fig.
-7, <img
-src="https://latex.codecogs.com/gif.latex?$n$"/> is two.
+discriminator circuit through a probability amplitude encoder
+$\cal{A}$, including normalization. The MAV navigation data set is
+amplitude encoded according to Eq. (1). Since n qubits can
+amplitude-encode $2^n$ datum, a n-qubit discriminator is fed by a
+generator with $2^n$ qumodes. In Fig. 7, $n$ is two.
 
 The generator is initialized with arbitrary displacements and rotation
-angles (<img src="https://latex.codecogs.com/gif.latex?\alpha"/> and
-<img src="https://latex.codecogs.com/gif.latex?\phi"/>). A gradient
-descent optimizer is used to minimize the cost represented by the term
-<img src="https://latex.codecogs.com/gif.latex?$--%20p_F$"/>. The
-outcome of the optimization of the generator is two column vectors of
-displacements and rotation angles, <img src="https://latex.codecogs.com/gif.latex?$2^n$"/> rows each, actualizing the
-generator circuit such that the probability that fake data is
-recognized as true is high.
+angles ($\alpha$ and $\phi$). A gradient descent optimizer is used to
+minimize the cost represented by the term $- p_F$. The outcome of the
+optimization of the generator is two column vectors of displacements
+and rotation angles, $2^n$ rows each, actualizing the generator
+circuit such that the probability that fake data is recognized as true
+is high.
 
 *Definition 2 (Generator optimization problem):* Given the quantum
-input state <img src="https://latex.codecogs.com/gif.latex?\psi"/>,
-probability amplitude encoding fake navigation data, the discriminator
-<img src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\omega)"
-/>, actualized with rotation angle matrix <img
-src="https://latex.codecogs.com/gif.latex?\omega"/>, training the
-generator <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{D}(\alpha,\phi)" />
-is the optimization problem that consists of finding the column
-vectors of the rotation angles <img
-src="https://latex.codecogs.com/gif.latex?\alpha"/> and <img
-src="https://latex.codecogs.com/gif.latex?\phi"/> (<img
-src="https://latex.codecogs.com/gif.latex?$2^n$"/> rows each) that
-gives the smallest difference <img
-src="https://latex.codecogs.com/gif.latex?$--%20p_F$"/>.
+input state $\psi$, probability amplitude encoding fake navigation
+data, the discriminator $\mathcal{D}(\omega)$, actualized with
+rotation angle matrix $\omega$, training the generator
+$\mathcal{D}(\alpha,\phi)$ is the optimization problem that consists
+of finding the column vectors of the rotation angles $\alpha$ and
+$\phi$ ($2^n$ rows each) that gives the smallest difference $- p_F$.
 
 
 ![Fig. 7. Generator qubit circuit feeding the discriminator circuit (n is two).](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig7.png?raw=true)
@@ -508,8 +425,8 @@ src="https://latex.codecogs.com/gif.latex?$--%20p_F$"/>.
 The learning process is automatic. The output of the photonic quantum
 circuit is classical and in the continuous domain. It is directly
 usable by the adversary to generate fake navigation data during a
-covert attack. The circuit complexity is although in <img
-src="https://latex.codecogs.com/gif.latex?\mathcal{O}(2^n)" />.
+covert attack. The circuit complexity is although in
+$\mathcal{O}(2^n)$.
 
 
 
@@ -527,25 +444,22 @@ less than 64 real number values.
 ![Fig. 8. Learning time (ms) versus the number of qubits for the discriminator
 and generator.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig8.png?raw=true)
 
-Fig. 8 plots the discriminator and generator learning time (ms)
-versus the number of qubits available. The x axis represents the
-number of qubits. The left y axis refers to the learning time (ms).
-The right y axis shows the corresponding probability of real true, for
-the discriminator, and probability of fake true, for the generator.
+Fig. 8 plots the discriminator and generator learning time (ms) versus
+the number of qubits available. The x axis represents the number of
+qubits. The left y axis refers to the learning time (ms). The right y
+axis shows the corresponding probability of real true, for the
+discriminator, and probability of fake true, for the generator.
 Hundred optimization iterations were done for each case. Negligible
 error margins are included, but not visible since they are very tiny.
 The discriminator is trained with six different genuine navigation
 data sets. A navigation data set is picked at random at every
 optimization iteration. The discriminator optimization time grows
 exponentially. Due to the exponential complexity of the generator
-circuit (in <img
-src="https://latex.codecogs.com/gif.latex?$\mathcal{O}(2^{n})$"/>),
-the optimization time also grows exponentially. On our simulation
-platform, it becomes unpractical from six qubits. The learning time
-becomes in the order of days. Amplitude encoding has also <img
-src="https://latex.codecogs.com/gif.latex?$\mathcal{O}(2^{n})$"/> time
-complexity, but it is only executed once at the start of the
-optimization process.
+circuit (in $\mathcal{O}(2^{n})$), the optimization time also grows
+exponentially. On our simulation platform, it becomes unpractical from
+six qubits. The learning time becomes in the order of days. Amplitude
+encoding has also $\mathcal{O}(2^{n})$ time complexity, but it is only
+executed once at the start of the optimization process.
 
 V. CONCLUSION
 ============
