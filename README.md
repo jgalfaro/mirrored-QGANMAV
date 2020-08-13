@@ -283,10 +283,10 @@ containing the rotation angles applied to the rotation gates. The
 matrix has one row per layer and "num_qubits" columns. The wire 0 is
 the output of the circuit. The output ranges in the continuous
 interval +1 down to -1, respectively corresponding to qubits $|0>$ and
-$|1>$. Intermediate values represent superpositions of qubits $|0>$
-and $|1>$. The optimizer aims at finding rotation angles such that the
-output of the circuit is approaching $+1$, which corresponds to qubit
-$|0>$.
+$|1>$ (i.e., $ket 0$ and $ket 1$). Intermediate values represent
+superpositions of qubits $|0>$ and $|1>$. The optimizer aims at
+finding rotation angles such that the output of the circuit is
+approaching $+1$, which corresponds to qubit $|0>$.
 
 ```python
 @qml.qnode(dev)
