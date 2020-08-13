@@ -8,7 +8,7 @@
 
 ## Resources
 
-Version:  August 30, 2019
+Version: August 30, 2019
 
 <a href="https://github.com/jgalfaro/mirrored-QGANMAV/tree/master/arxiv-paper">Associated Paper</a> available on <a href="">https://arxiv.org/abs/1907.03038</a>.
 
