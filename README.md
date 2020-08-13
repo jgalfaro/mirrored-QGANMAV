@@ -20,7 +20,7 @@ Reused code from:
 
 <a href="https://github.com/XanaduAI/pennylane/">Quantum Generative Adversarial Network</a>
 
-<a href="https://github.com/XanaduAI/">Gaussian transformation</a>
+<a href="https://github.com/XanaduAI/pennylane/">Gaussian transformation</a>
 
 ## 1. Preamble
 
