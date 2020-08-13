@@ -16,11 +16,11 @@ Version: August 30, 2019
 
 Reused code from:
 
-<a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_variational_classifier.py">Variational classifier - Iris classification</a>
+<a href="https://github.com/XanaduAI/pennylane/">Variational classifier - Iris classification</a>
 
-<a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_QGAN.py">Quantum Generative Adversarial Network</a>
+<a href="https://github.com/XanaduAI/pennylane/">Quantum Generative Adversarial Network</a>
 
-<a href="https://github.com/XanaduAI/pennylane/blob/master/examples/pennylane_run_gaussian_transformation.py">Gaussian transformation</a>
+<a href="https://github.com/XanaduAI/">Gaussian transformation</a>
 
 ## 1. Preamble
 
