@@ -1,4 +1,4 @@
-# Quantum Generative Adversarial Network for MAVs
+# Quantum Generative Adversarial Network for Micro Aerial Vehicles
 
 ## Authors
 
@@ -541,14 +541,10 @@ gen_weights = 0.1*np.ones([2**num_qubits,3],dtype=float)
 gen_cost(gen_weights,disc_weights)
 ```
 
-
-
-
     -0.4999946815954298
 
 
-
-### Generator optimization
+### 4.3 Generator optimization
 
 Perform gradient descent optimization iterations:
 
@@ -566,3 +562,54 @@ for i in range(steps):
     if i % 5 == 0:
         print("Step {}: cost = {}".format(i+1, cost))
 ```
+
+
+### 5. Experimental Results
+
+The performance of the photonic-circuit design described in Section
+III has been validated through simulation on a classical computing
+platform. Simulations were conducted using an Intel Xeon 32-core 2.70
+GHz server, with 256 GB of memory. We generated genuine navigation for
+a Parrot Mambo MAV (Micro Aerial Vehicle). In the scenario, the MAV
+takes off one meter, does two circles on the horizontal plane, then
+lands. The navigation data consists of x, y and z velocity triples.
+The whole scenario generates less than 64 real number values.
+
+![Fig. Learning time (ms) versus the number of qubits for the discriminator
+and generator.](https://github.com/jgalfaro/mirrored-QGANMAV/blob/master/arxiv-paper/figures/fig8.png?raw=true)
+
+The above figure plots the discriminator and generator learning time
+(ms) versus the number of qubits available. The x axis represents the
+number of qubits. The left y axis refers to the learning time (ms).
+The right y axis shows the corresponding probability of real true, for
+the discriminator, and probability of fake true, for the generator.
+Hundred optimization iterations were done for each case. Negligible
+error margins are included, but not visible since they are very tiny.
+The discriminator is trained with six different genuine navigation
+data sets. A navigation data set is picked at random at every
+optimization iteration. The discriminator optimization time grows
+exponentially. Due to the exponential complexity of the generator
+circuit (in $\mathcal{O}(2^{n})$), the optimization time also grows
+exponentially. On our simulation platform, it becomes unpractical from
+six qubits. The learning time becomes in the order of days. Amplitude
+encoding has also $\mathcal{O}(2^{n})$ time complexity, but it is only
+executed once at the start of the optimization process.
+
+### 6. Conclusion
+
+We have investigated the use of QGAN designs to generate fake MAV
+(Micro Aerial Vehicle) navigation data. We assume the same approach to
+discriminate between genuine and fake MAV navigation data. The goal
+pursued by the adversary is to generate fake data that is accepted as
+true by a trained discriminator. On the other hand, the discriminator
+must accept with high probabilities true navigation data and reject
+fake one. The elaborated quantum circuits have been evaluated running
+on a a classical computing platform. As demonstrated in the
+experimental results section, the exponentially growing time complexity in the
+number of qubits is an obstacle to scalability. We identified hurdles
+that must be overcome by the upcoming evolution of quantum machine
+learning. The main hurdle for the adversary is the generation of
+navigation data in classical continuous domains, i.e., real numbers,
+and the cost of the transformation into the quantum format at every
+optimization iteration. Further research is needed to improve and find
+alternatives to the design used in this initial study.
