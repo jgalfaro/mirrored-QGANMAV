@@ -35,7 +35,7 @@ import math
 ```
 
 A six-qubit device is create. With probability amplitude encoding, up
-to $2^6$ single scalar values can be reprented in probability
+to $2^6$ single scalar values can be represented in probability
 amplitudes in the input circuit quantum state.
 
 
