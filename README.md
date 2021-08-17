@@ -614,3 +614,20 @@ continuous domains, i.e., real numbers; and the cost of the
 transformation into the quantum format at every optimization
 iteration. Further research is needed to improve and find alternatives
 to the photonic quantum design used in this initial study.
+
+## References
+
+If using this code for research purposes, please cite:
+
+M. Barbeau and J. Garcia-Alfaro. Faking and Discriminating the Navigation Data of a Micro Aerial Vehicle Using Quantum Generative Adversarial Networks. IEEE GLOBECOM 2019 Workshop on Quantum Communications and Information Technology 2019 (5th QCIT workshop of the Emerging Technical Committee on Quantum Communications and Information Technology), December 2019. 
+
+```
+@inproceedings{barbeau-alfaro2019faking,
+  title={Faking and Discriminating the Navigation Data of a Micro Aerial Vehicle Using Quantum Generative Adversarial Networks},
+  author={Barbeau, Michel and Garcia-Alfaro, Joaquin},
+  booktitle={IEEE GLOBECOM 2019 Workshop on Quantum Communications and Information Technology 2019 (5th QCIT workshop of the Emerging Technical Committee on Quantum Communications and Information Technology)},
+  pages={1--6},
+  year={2019},
+  organization={IEEE}
+}
+```
